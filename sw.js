@@ -12,11 +12,14 @@ this.addEventListener('install', async (event) => {
 
 this.addEventListener('fetch', (event) => {
     event.respondWith(async function() {
-        const response = await caches.match(event.request);
-        if (response) {
-            return response;
+        try {
+            const response = await caches.match(event.request);
+            if (response) {
+                return response;
+            }
+        } catch (e) {
+            console.log(e);
+            return fetch(event.request);
         }
-
-        return fetch(event.request);
     });
 });
