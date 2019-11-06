@@ -10,13 +10,13 @@ this.addEventListener('install', async (event) => {
     this.skipWaiting();
 });
 
-this.addEventListener('fetch', (event) => {
-    event.respondWith(async () => {
-        let response = await caches.match(event.request);
-        if (response) {
-            return response;
-        }
+// this.addEventListener('fetch', (event) => {
+//     event.respondWith(async function() {
+//         const response = await caches.match(event.request);
+//         if (response) {
+//             return response;
+//         }
 
-        return fetch(event.request);
-    });
-});
+//         return fetch(event.request);
+//     });
+// });
