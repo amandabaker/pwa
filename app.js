@@ -11,3 +11,8 @@ const registerServiceWorker = async () => {
 if (navigator.serviceWorker) {
     registerServiceWorker();
 }
+
+window.onload = () => {
+    const fetchButton = document.getElementById('fetchFilesButton');
+    fetchButton.onclick = () => fetch('app.js');
+}
