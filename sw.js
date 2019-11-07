@@ -5,6 +5,7 @@ const cachedFiles = [
     '/pwa/index.html',
     '/pwa/app.js',
     '/pwa/style.css',
+    '/pwa/favicon.ico',
 ];
 
 
