@@ -1,19 +1,15 @@
 const CACHE = 'myCache';
 
 const cachedFiles = [
-    '/pwa/',
-    '/pwa/index.html',
-    '/pwa/app.js',
-    '/pwa/style.css',
+    '/',
+    '/index.html',
+    '/app.js',
+    '/style.css',
 ];
 
 
 this.addEventListener('install', async (event) => {
-    await event.waitUntil(async () => {
-        const cache = await caches.open(CACHE);
-        return cache.addAll(cachedFiles)
-    });
-    this.skipWaiting();
+    await event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(cachedFiles)));
 });
 
 this.addEventListener('fetch', (event) => {
