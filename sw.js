@@ -1,10 +1,10 @@
 const CACHE = 'myCache';
 
 const cachedFiles = [
-    // '/',
-    '/index.html',
-    '/app.js',
-    '/style.css',
+    '/',
+    // '/pwa/index.html',
+    // '/app.js',
+    // '/style.css',
 ];
 
 
