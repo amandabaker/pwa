@@ -11,7 +11,7 @@ const cachedFiles = [
 this.addEventListener('install', async (event) => {
     await event.waitUntil(async () => {
         const cache = await caches.open(CACHE);
-        cache.addAll(cachedFiles)
+        return cache.addAll(cachedFiles)
     });
     this.skipWaiting();
 });
