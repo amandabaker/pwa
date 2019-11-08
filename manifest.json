@@ -1,5 +1,16 @@
 {
     "short_name": "PWA",
     "name": "A Progressive Web App",
-    "display": "standalone"
+
+    "background_color": "#111111",
+    "display": "standalone",
+    "scope": "/pwa/",
+    "serviceworker": {
+        "src": "./sw.js",
+        "scope": "/pwa",
+        "type": "",
+        "update_via_cache": "none"
+    },
+    "start_url": "https://amandabaker.github.io/pwa",
+    "theme_color": "#65b8e2"
 }
