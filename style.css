@@ -10,4 +10,5 @@ h1 {
     border-style: dashed;
     border-width: 1px;
     padding: 5px;
+    user-select: none;
 }
