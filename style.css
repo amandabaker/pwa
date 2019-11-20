@@ -1,3 +1,13 @@
 h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.draggable-region {
+    -webkit-app-region: drag;
+    height: 25px;
+    width: 100%;
+    border-color: black;
+    border-style: dashed;
+    border-width: 1px;
+    padding: 5px;
+}
