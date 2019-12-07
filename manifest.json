@@ -3,7 +3,7 @@
     "name": "A Progressive Web App",
 
     "background_color": "#111111",
-    "display": "standalone",
+    "display": "fullscreen",
     "scope": "https://amandabaker.github.io/pwa/",
     "serviceworker": {
         "src": "./sw.js",
