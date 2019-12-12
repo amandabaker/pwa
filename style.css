@@ -4,11 +4,24 @@ h1 {
 
 .draggable-region {
     -webkit-app-region: drag;
-    height: 25px;
-    width: 100%;
+    width: 300px;
     border-color: black;
     border-style: dashed;
     border-width: 1px;
     padding: 5px;
     user-select: none;
+    text-align: center;
+}
+
+.undraggable-region {
+    -webkit-app-region: no-drag;
+    height: 30px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: black;
+    border-style: dashed;
+    border-width: 1px;
+    padding: 5px;
+    user-select: auto;
 }
