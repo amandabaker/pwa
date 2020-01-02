@@ -11,14 +11,22 @@
     </head>
 
     <body>
-        <div class="draggable-region">
-            <p>Draggable region</p>
-            <div class="undraggable-region">Can't drag this!</div>
+        <div class="row">
+            <div class="draggable-region">
+                <p>Draggable region</p>
+                <div class="undraggable-region">Can't drag this!</div>
+            </div>
+            <button id="clickMe">Click me</button>
         </div>
-        <h1>A Progressive Web App</h1>
+        <div class="content">
+            <h1>A Progressive Web App</h1>
 
-        <button id="fetchFilesButton" onclick="fetch('app.js')">Fetch app.js</button>
-        <iframe src="iframe.html"></iframe>
+            <div class="row">
+                <button id="fetchFilesButton" onclick="fetch('app.js')">Fetch app.js</button>
+                <iframe src="iframe.html"></iframe>
+            </div>
+            <p>Click count:<span id="clickCount">0</span></p>
+        </div>
         <script src="app.js"></script>
     </body>
 </html>

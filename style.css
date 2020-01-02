@@ -1,16 +1,36 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+}
+
 h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+button {
+    height: 50px;
+    width: 150px;
+}
+
+.content {
+    margin: 10px;
+}
+
+.row {
+    display: flex;
+}
+
 .draggable-region {
     -webkit-app-region: drag;
-    width: 300px;
     border-color: black;
     border-style: dashed;
     border-width: 1px;
+    flex: auto;
     padding: 5px;
     user-select: none;
     text-align: center;
+    margin: 10px;
 }
 
 .undraggable-region {

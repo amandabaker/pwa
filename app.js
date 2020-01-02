@@ -11,3 +11,10 @@ const registerServiceWorker = async () => {
 if (navigator.serviceWorker) {
     registerServiceWorker();
 }
+
+let count = 0;
+const clickCountElement = document.getElementById("clickCount");
+
+document.getElementById("clickMe").addEventListener("click", (event) => {
+    clickCountElement.textContent = ++count;    
+});
