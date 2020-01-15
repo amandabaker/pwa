@@ -1,0 +1,47 @@
+.draggable {
+    app-region: drag;
+}
+
+.nonDraggable {
+    app-region: no-drag;
+}
+
+.titleBarContainer {
+    display: flex;
+    background-color:#254B85;
+    color: #FFFFFF;
+    text-align: center;
+    user-select: none;
+    position: absolute;
+    font-weight: bold;
+}
+
+.titleBarContainer > span {
+    margin: auto;
+    padding: 0px 16px 0px 16px;
+}
+
+.titleBarContainer > input {
+    flex: 1;
+    margin: 8px;
+    border-radius: 5px;
+    border: none;
+    padding: 8px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#mainContent {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: scroll;
+}
+
+.overflowingDiv {
+    height:200%;
+    margin: 25px;
+}
