@@ -12,5 +12,5 @@
         "update_via_cache": "none"
     },
     "start_url": "https://amandabaker.github.io/pwa/",
-    "theme_color": "black"
+    // "theme_color": "black"
 }
