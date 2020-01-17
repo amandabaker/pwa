@@ -1,6 +1,6 @@
 {
-  "name": "Example PWA",
-  "display": "standalone",
+  "name": "Example PWA - browser",
+  "display": "browser",
   "custom_title_bar": "true",
   "theme_color": "#254B85"
 }

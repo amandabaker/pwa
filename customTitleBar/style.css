@@ -7,13 +7,13 @@
 }
 
 .titleBarContainer {
+    position: absolute;
     display: flex;
+    user-select: none;
     background-color:#254B85;
     color: #FFFFFF;
-    text-align: center;
-    user-select: none;
-    position: absolute;
     font-weight: bold;
+    text-align: center;
 }
 
 .titleBarContainer > span {

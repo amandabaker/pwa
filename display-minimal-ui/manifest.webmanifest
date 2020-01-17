@@ -1,0 +1,6 @@
+{
+  "name": "Example PWA - minimal-ui",
+  "display": "minimal-ui",
+  "custom_title_bar": "true",
+  "theme_color": "#254B85"
+}
