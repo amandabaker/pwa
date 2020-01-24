@@ -14,10 +14,10 @@ this.addEventListener('install', async (event) => {
 });
 
 this.addEventListener('fetch', (event) => {
-    event.respondWith(caches.match(event.request).then((response) => {
+    event.respondWith(fetch(event.request).then(() => {}, async () => {
+        const response = await caches.match(event.request);
         if (response) {
             return response;
         }
-        return fetch(event.request);
     }));
 });
