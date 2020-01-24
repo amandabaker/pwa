@@ -14,7 +14,9 @@ this.addEventListener('install', async (event) => {
 });
 
 this.addEventListener('fetch', (event) => {
-    event.respondWith(fetch(event.request).then(() => {}, async () => {
+    event.respondWith(fetch(event.request).then((response) => {
+        return response;
+    }, async () => {
         const response = await caches.match(event.request);
         if (response) {
             return response;
