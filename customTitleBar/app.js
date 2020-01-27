@@ -27,6 +27,10 @@ window.menubar.controlOverlay.getBoundingRect = () => {
 }
 
 const resizeTitleBar = () => {
+  if (!window.menubar.controlOverlay) {
+    return;
+  }
+
   const overlay = window.menubar.controlOverlay.getBoundingRect();
 
   const titlebar = document.getElementById('titlebar');
