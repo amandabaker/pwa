@@ -4,12 +4,12 @@
 
     "background_color": "#111111",
     "display": "fullscreen",
-    "scope": "https://amandabaker.github.io/pwa/",
+    "scope": "https://amandabaker.github.io/pwa/sample/",
     "serviceworker": {
         "src": "./sw.js",
         "scope": "/pwa/sample",
         "type": "",
         "update_via_cache": "none"
     },
-    "start_url": "https://amandabaker.github.io/pwa/"
+    "start_url": "https://amandabaker.github.io/pwa/sample/"
 }
