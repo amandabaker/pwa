@@ -1,11 +1,11 @@
 const CACHE = 'myCache';
 
 const cachedFiles = [
-    '/pwa/',
-    '/pwa/index.html',
-    '/pwa/app.js',
-    '/pwa/style.css',
-    '/pwa/favicon.ico',
+    '/pwa/sample/',
+    '/pwa/sample/index.html',
+    '/pwa/sample/app.js',
+    '/pwa/sample/style.css',
+    '/pwa/sample/favicon.ico',
 ];
 
 

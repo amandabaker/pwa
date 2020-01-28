@@ -7,7 +7,7 @@
     "scope": "https://amandabaker.github.io/pwa/",
     "serviceworker": {
         "src": "./sw.js",
-        "scope": "/pwa/",
+        "scope": "/pwa/sample",
         "type": "",
         "update_via_cache": "none"
     },
