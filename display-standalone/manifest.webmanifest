@@ -2,5 +2,5 @@
   "name": "Example PWA - standalone",
   "display": "standalone",
   "custom_title_bar": "true",
-  "theme_color": "#254B85"
+  "theme_color": "#000000"
 }
