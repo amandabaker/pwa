@@ -1,6 +1,6 @@
 // mac left, windows right. So this needs to work with either layout.
-const height = 40;
-const width = 184;
+const height = 39;
+const width = 413;
 
 // Windows
 const startX = window.innerWidth - width;
