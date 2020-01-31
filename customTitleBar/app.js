@@ -1,5 +1,5 @@
 // mac left, windows right. So this needs to work with either layout.
-const height = 39;
+const height = 40;
 const width = 276;
 
 // Windows
@@ -37,7 +37,7 @@ const resizeTitleBar = () => {
   titlebar.style.left = `${overlay.x ? 0 : overlay.width}px`;
   titlebar.style.right = `${overlay.x ? overlay.width : 0}px`;
   titlebar.style.top = '0px';
-  titlebar.style.bottom = `${window.innerHeight - overlay.bottom}px`;
+  titlebar.style.height = `${overlay.height}px`
 
   const mainContent = document.getElementById('mainContent');
   mainContent.style.top = `${overlay.height}px`;
