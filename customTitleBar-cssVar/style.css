@@ -1,0 +1,58 @@
+:root {
+    --title-bar-height: 35px;
+    --title-bar-inset-left: 0px;
+    --title-bar-inset-right: 0px;
+}
+
+.draggable {
+    -webkit-app-region: drag;
+}
+
+.nonDraggable {
+    -webkit-app-region: no-drag;
+}
+
+.titleBarContainer {
+    position: absolute;
+    left: var(--title-bar-inset-left);
+    right: var(--title-bar-inset-right);
+    top: 0;
+    height: var(--title-bar-height);    
+    display: flex;
+    user-select: none;
+    background-color:#254B85;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+}
+
+.titleBarContainer > span {
+    margin: auto;
+    padding: 0px 16px 0px 16px;
+}
+
+.titleBarContainer > input {
+    flex: 1;
+    margin: 8px;
+    border-radius: 5px;
+    border: none;
+    padding: 8px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#mainContent {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: var(--title-bar-height);
+    overflow-y: scroll;
+}
+
+.overflowingDiv {
+    height:200%;
+    margin: 25px;
+}
