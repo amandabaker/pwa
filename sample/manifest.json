@@ -11,5 +11,15 @@
         "type": "",
         "update_via_cache": "none"
     },
-    "start_url": "https://amandabaker.github.io/pwa/sample/"
+    "start_url": "https://amandabaker.github.io/pwa/sample/",
+    "icons": [
+        {
+          "src": "48x48.png",
+          "sizes": "48x48"
+        },
+        {
+          "src": "144x144.png",
+          "sizes": "144x144"
+        }
+      ]
 }
