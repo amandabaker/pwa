@@ -1,6 +1,16 @@
 {
   "name": "Example PWA - standalone",
   "display": "standalone",
-  "custom_title_bar": "true",
-  "theme_color": "#000000"
+  "start_url": "./index.html",
+  "theme_color": "#254B85",
+  "icons": [
+    {
+      "src": "48x48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "144x144.png",
+      "sizes": "144x144"
+    }
+  ]
 }
