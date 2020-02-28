@@ -1,0 +1,102 @@
+:root {
+  --fallback-title-bar-height: 35px;
+  --safe-area-inset-top: 40px;
+
+  /* notch */
+  /* --unsafe-area-top-inset-left: 200px;  
+  --unsafe-area-top-inset-right: 250px; */
+
+  /* controls overlay win */
+  /* --unsafe-area-top-inline-inset-start: 700px;  
+  --unsafe-area-top-inline-inset-end: 0; */
+
+  /* controls overlay mac */
+  --unsafe-area-top-inset-inline-start: 0;  
+  --unsafe-area-top-inset-inline-end: 700px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+.flexContainer {
+  display: flex;
+  height: var(--safe-area-inset-top);
+  width: 100%;
+}
+
+.titleBarContainerWin {
+  height: var(--safe-area-inset-top);    
+  width: var(--unsafe-area-top-inset-inline-start);
+  display: flex;
+  user-select: none;
+
+  background-color:#254B85;
+  color: #FFFFFF;
+  font-weight: bold;
+  overflow: hidden;
+  text-align: center;
+}
+
+.titleBarContainerMac {
+  height: var(--safe-area-inset-top);    
+  width: var(--unsafe-area-top-inset-inline-end);
+
+  display: flex;
+  user-select: none;
+
+  background-color:#254B85;
+  color: #FFFFFF;
+  font-weight: bold;
+  overflow: hidden;
+  text-align: center;
+}
+
+.notch {
+  flex: auto;
+
+  background-color: #00000055;
+  display: flex;
+}
+
+.titleBarContainerMac > span,
+.titleBarContainerWin > span {
+  margin: auto;
+  padding: 0px 16px 0px 16px;
+}
+
+.titleBarContainerMac > input,
+.titleBarContainerWin > input {
+  flex: 1;
+  margin: 8px;
+  border-radius: 5px;
+  border: none;
+  padding: 8px;
+}
+
+.notch > button {
+  margin: auto;
+}
+
+.draggable {
+  -webkit-app-region: drag;
+}
+
+.nonDraggable {
+  -webkit-app-region: no-drag;
+}
+
+#mainContent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: var(--fallback-title-bar-height);
+  overflow-y: scroll;
+}
+
+.overflowingDiv {
+  height:200%;
+  margin: 25px;
+}
