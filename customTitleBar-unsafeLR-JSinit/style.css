@@ -1,0 +1,88 @@
+:root {
+  --fallback-title-bar-height: 40px;
+  --safe-area-inset-top: 40px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+#titleBarContainer {
+  display: flex;
+  height: var(--safe-area-inset-top, var(--fallback-title-bar-height));
+  width: 100%;
+  background-color:#254B85;
+}
+
+#titleBarContainer.rightOverlay {
+  flex-direction: row;
+}
+
+#titleBarContainer.leftOverlay {
+  flex-direction: row-reverse;
+}
+
+#titleBar {
+  display: flex;
+  user-select: none;
+  width: 100%;
+
+  background-color:#254B85;
+  color: #FFFFFF;
+  font-weight: bold;
+  overflow: hidden;
+  text-align: center;
+}
+
+.rightOverlay > #titleBar{
+  width: var(--unsafe-area-top-inset-left);
+}
+
+.leftOverlay > #titleBar {
+  width: var(--unsafe-area-top-inset-right);
+}
+
+/* .overlayArea {
+  flex: auto;
+  background-color: #00000055;
+} */
+
+#titleBar > span {
+  margin: auto;
+  padding: 0px 16px 0px 16px;
+}
+
+#titleBar > input {
+  flex: 1;
+  margin: 8px;
+  border-radius: 5px;
+  border: none;
+  padding: 8px;
+}
+
+.overlayArea > button {
+  margin: auto;
+}
+
+.draggable {
+  -webkit-app-region: drag;
+}
+
+.nonDraggable {
+  -webkit-app-region: no-drag;
+}
+
+#mainContent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: var(--safe-area-inset-top, var(--fallback-title-bar-height));
+  overflow-y: scroll;
+}
+
+.overflowingDiv {
+  height:200%;
+  margin: 25px;
+}
