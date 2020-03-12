@@ -1,5 +1,5 @@
-// // mac left, windows right. So this needs to work with either layout.
 
+// This code fakes out what the browser will do when the environment variables are supported
 const inlineStart = "--unsafe-area-top-inset-inline-start";
 const inlineEnd = "--unsafe-area-top-inset-inline-end";
 
@@ -25,6 +25,7 @@ const updateCSSVars = () => {
 updateCSSVars();
 window.addEventListener('resize', updateCSSVars);
 
+// toggle between emulating Mac or Windows
 const toggleWinMac = () => {
   const button = document.getElementById("toggleWinMac");
   isWindows = !isWindows;
@@ -33,6 +34,7 @@ const toggleWinMac = () => {
 }
 document.getElementById("toggleWinMac").addEventListener("click", toggleWinMac);
 
+// register a service worker for the PWA
 const registerServiceWorker = async () => {
   try {
       await navigator.serviceWorker.register('/pwa/customTitleBar-inset-inline/sw.js', 

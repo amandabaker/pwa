@@ -64,9 +64,9 @@ updateSetBoundingRect();
 
 const updateEverything = () => {
   // remove left/right class
-  const titleBarContainer = document.getElementById("titleBarContainer");
-  titleBarContainer.classList.remove("leftOverlay");
-  titleBarContainer.classList.remove("rightOverlay");
+  const titleBar = document.getElementById("titleBar");
+  titleBar.classList.remove("leftOverlay");
+  titleBar.classList.remove("rightOverlay");
 
   updateCSSVars();
   updateSetBoundingRect();
@@ -108,12 +108,12 @@ document.getElementById("toggleLTRRTL").addEventListener("click", toggleLTRRTL);
 const initializeTitleBar = () => {
   const rect = window.navigator.controlsOverlay.getBoundingRect();
 
-  const titleBarContainer = document.getElementById("titleBarContainer");
+  const titleBar = document.getElementById("titleBar");
   // rect.x will be 0 if the overlay is on the left
   if (rect.x === 0) {
-    titleBarContainer.classList.add("leftOverlay");
+    titleBar.classList.add("leftOverlay");
   } else {
-    titleBarContainer.classList.add("rightOverlay");
+    titleBar.classList.add("rightOverlay");
   }
 };
 
