@@ -1,7 +1,9 @@
 {
   "name": "Custom Title Bar: unsafe-area-top-inset-left/right with JS initialization",
-  "custom_title_bar": "true",
   "display": "standalone",
+  "display_modifiers": [
+    "window-controls-only"
+  ],
   "start_url": "./index.html",
   "theme_color": "#254B85",
   "icons": [

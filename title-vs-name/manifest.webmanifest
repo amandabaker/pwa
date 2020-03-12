@@ -1,6 +1,8 @@
 {
   "name": "Name from web app manifest",
   "display": "browser",
-  "custom_title_bar": "true",
+  "display_modifiers": [
+    "window-controls-only"
+  ],
   "theme_color": "#254B85"
 }

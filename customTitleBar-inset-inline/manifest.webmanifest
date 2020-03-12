@@ -1,7 +1,9 @@
 {
   "name": "Custom Title Bar: Inset Inline",
-  "custom_title_bar": "true",
   "display": "standalone",
+  "display_modifiers": [
+    "window-controls-only"
+  ],
   "start_url": "./index.html",
   "theme_color": "#254B85",
   "icons": [
