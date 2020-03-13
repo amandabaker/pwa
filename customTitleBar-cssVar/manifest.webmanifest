@@ -2,7 +2,7 @@
   "name": "Custom Title Bar - CSS Var",
   "display": "standalone",
   "display_modifiers": [
-    "window-controls-only"
+    "window-controls-overlay"
   ],
   "start_url": "./index.html",
   "theme_color": "#254B85",
