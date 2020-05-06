@@ -1,0 +1,19 @@
+{
+  "name": "Chrome",
+  "display": "standalone",
+  "display_modifiers": [
+    "window-controls-overlay"
+  ],
+  "start_url": "./index.html",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "144.png",
+      "sizes": "144x144"
+    }
+  ]
+}
