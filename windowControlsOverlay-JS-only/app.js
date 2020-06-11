@@ -23,8 +23,8 @@ const layoutTitleBarForOverlay = () => {
   titleBar.style.width = 'auto';
 }
 
-if (window.navigator.controlsOverlay &&
-    window.navigator.controlsOverlay.visible) {
+if (window.navigator.windowControlsOverlay &&
+    window.navigator.windowControlsOverlay.visible) {
   layoutTitleBarForOverlay();
 }
 
@@ -55,3 +55,10 @@ const updateWCOInfo = () => {
 }
 
 updateWCOInfo();
+
+const onResize = () => {
+  layoutTitleBarForOverlay();
+  updateWCOInfo();
+}
+
+window.addEventListener('resize', onResize);
