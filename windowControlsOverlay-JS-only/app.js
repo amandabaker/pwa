@@ -26,6 +26,10 @@ const layoutTitleBarForOverlay = () => {
   // Adjust the height of the container that paints a background color behind the "title bar" area
   const titleBarContainer = document.getElementById('titleBarContainer');
   titleBarContainer.style.height = `${overlay.height}px`;
+
+  // Adjust the top edge of the main scrollable content area
+  const mainContent = document.getElementById('mainContent');
+  mainContent.style.top = `${overlay.height}px`;
 }
 
 if (window.navigator.windowControlsOverlay &&
