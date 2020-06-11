@@ -1,0 +1,20 @@
+{
+  "name": "Window Controls Overlay App--JS only",
+  "display": "standalone",
+  "display_modifiers": [
+    "window-controls-overlay"
+  ],
+  "start_url": "./index.html",
+  "theme_color": "#30b89c",
+  "background_color": "#10826b",
+  "icons": [
+    {
+      "src": "48x48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "144x144.png",
+      "sizes": "144x144"
+    }
+  ]
+}

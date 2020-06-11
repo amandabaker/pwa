@@ -1,0 +1,88 @@
+:root {
+  --fallback-title-bar-height: 40px;
+  --safe-area-inset-top: 40px;
+  --theme-color: #10826b;
+}
+  
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+#titleBarContainer {
+  position: absolute;
+  top: 0;
+  height: var(--safe-area-inset-top, var(--fallback-title-bar-height));
+  width: 100%;
+  background-color: var(--theme-color);
+}
+
+#titleBar {
+  position: absolute;
+  top: 0;
+  display: flex;
+  user-select: none;
+  height: 100%;
+  width: 100%;
+
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: center;
+
+  /* cut off UI so you know that it would flow under the overlay */
+  overflow: hidden;
+}
+
+#titleBar.rightOverlay {
+  left: 0;
+  width: var(--unsafe-area-top-inset-left);
+}
+
+#titleBar.leftOverlay {
+  right: 0;
+  width: var(--unsafe-area-top-inset-right);
+}
+
+#titleBar > span {
+  margin: auto;
+  padding: 0px 16px 0px 16px;
+}
+
+#titleBar > input {
+  flex: 1;
+  margin: 8px 8px 8px 0;
+  border-radius: 5px;
+  border: none;
+  padding: 8px;
+}
+
+.overlayArea > button {
+  margin: auto;
+}
+
+.draggable {
+  -webkit-app-region: drag;
+}
+
+.nonDraggable {
+  -webkit-app-region: no-drag;
+}
+
+#mainContent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: var(--safe-area-inset-top, var(--fallback-title-bar-height));
+  overflow-y: scroll;
+}
+
+.overflowingDiv {
+  height:200%;
+  margin: 25px;
+}
+
+.mono {
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre;
+}
