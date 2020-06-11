@@ -15,12 +15,17 @@ if (navigator.serviceWorker) {
 const layoutTitleBarForOverlay = () => {
   const overlay = navigator.windowControlsOverlay.getBoundingClientRect();
   
+  // Adjust size and position of the "title bar" div which holds the app name and input box
   const titleBar = document.getElementById('titleBar');
   titleBar.style.left = `${overlay.x ? 0 : overlay.width}px`;
   titleBar.style.right = `${overlay.x ? overlay.width : 0}px`;
   titleBar.style.top = '0px';
-  titleBar.style.height = `${overlay.height}px`
+  titleBar.style.height = `${overlay.height}px`;
   titleBar.style.width = 'auto';
+
+  // Adjust the height of the container that paints a background color behind the "title bar" area
+  const titleBarContainer = document.getElementById('titleBarContainer');
+  titleBarContainer.style.height = `${overlay.height}px`;
 }
 
 if (window.navigator.windowControlsOverlay &&
