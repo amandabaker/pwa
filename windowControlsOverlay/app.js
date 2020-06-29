@@ -38,7 +38,7 @@ const updateWCOInfo = () => {
   const wcoElement = document.getElementById('WCO');
   const visibleElement = document.getElementById('WCOVisible');
   const rectElement = document.getElementById('WCORect');
-  if (navigator.windowControlsOverlay == undefined) {
+  if (!navigator.windowControlsOverlay) {
     wcoElement.textContent = "navigator.windowControlsOverlay = undefined";
     visibleElement.textContent = "";
     rectElement.textContent = "";
@@ -61,3 +61,10 @@ const updateWCOInfo = () => {
 }
 
 updateWCOInfo();
+
+const onResize = () => {
+  layoutTitleBarForOverlay();
+  updateWCOInfo();
+}
+
+window.addEventListener('resize', onResize);
