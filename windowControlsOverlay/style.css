@@ -16,6 +16,10 @@ body {
   background-color: var(--theme-color);
 }
 
+#titleBarContainer.overlay {
+  height: env(safe-area-inset-top);
+}
+
 #titleBar {
   position: absolute;
   top: 0;

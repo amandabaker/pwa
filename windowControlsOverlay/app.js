@@ -30,6 +30,9 @@ const initializeTitleBar = () => {
 
   const mainContent = document.getElementById("mainContent");
   mainContent.classList.add("overlay");
+
+  const titleBarContainer = document.getElementById("titleBarContainer");
+  titleBarContainer.classList.add("overlay");
 };
 
 if (window.navigator.controlsOverlay &&
