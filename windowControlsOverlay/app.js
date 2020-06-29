@@ -24,6 +24,9 @@ const initializeTitleBar = () => {
   } else {
     titleBar.classList.add("rightOverlay");
   }
+
+  const mainContent = document.getElementById("mainContent");
+  mainContent.classList.add("overlay");
 };
 
 if (window.navigator.controlsOverlay &&

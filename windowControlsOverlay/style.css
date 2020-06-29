@@ -1,6 +1,5 @@
 :root {
   --fallback-title-bar-height: 40px;
-  --safe-area-inset-top: 40px;
   --theme-color: #10826b;
 }
   
@@ -12,7 +11,7 @@ body {
 #titleBarContainer {
   position: absolute;
   top: 0;
-  height: var(--safe-area-inset-top, var(--fallback-title-bar-height));
+  height: var(--fallback-title-bar-height);
   width: 100%;
   background-color: var(--theme-color);
 }
@@ -35,12 +34,14 @@ body {
 
 #titleBar.rightOverlay {
   left: 0;
-  width: var(--unsafe-area-top-inset-left);
+  height: env(safe-area-inset-top);
+  width: env(unsafe-area-top-inset-left);
 }
 
 #titleBar.leftOverlay {
   right: 0;
-  width: var(--unsafe-area-top-inset-right);
+  height: env(safe-area-inset-top);
+  width: env(unsafe-area-top-inset-right);
 }
 
 #titleBar > span {
@@ -73,8 +74,12 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  top: var(--safe-area-inset-top, var(--fallback-title-bar-height));
+  top: var(--fallback-title-bar-height);
   overflow-y: scroll;
+}
+
+#mainContent.overlay {
+  top: env(safe-area-inset-top);
 }
 
 .overflowingDiv {
