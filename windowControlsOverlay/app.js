@@ -14,10 +14,13 @@ if (navigator.serviceWorker) {
 
 // initialize the title bar to avoid the caption control overlay which
 // could be in either the top right or top left corner
+// NOTE: this assumes that the browser language will never switch from left to right
+// or vice versa. It can only enable the overlay, but it cannot turn it off (for now).
 const initializeTitleBar = () => {
   const rect = window.navigator.controlsOverlay.getBoundingRect();
 
   const titleBar = document.getElementById("titleBar");
+
   // rect.x will be 0 if the overlay is on the left
   if (rect.x === 0) {
     titleBar.classList.add("leftOverlay");
@@ -63,7 +66,7 @@ const updateWCOInfo = () => {
 updateWCOInfo();
 
 const onResize = () => {
-  layoutTitleBarForOverlay();
+  initializeTitleBar();
   updateWCOInfo();
 }
 
