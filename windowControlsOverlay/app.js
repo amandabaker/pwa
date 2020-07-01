@@ -17,10 +17,10 @@ if (navigator.serviceWorker) {
 // NOTE: this assumes that the browser language will never switch from left to right
 // or vice versa. It can only enable the overlay, but it cannot turn it off (for now).
 const initializeTitleBar = () => {
-  if (window.navigator.controlsOverlay && window.navigator.controlsOverlay.visible) {
+  if (!window.navigator.controlsOverlay || !window.navigator.controlsOverlay.visible) {
     return;
   }
-  
+
   const rect = navigator.windowControlsOverlay.getBoundingClientRect();
 
   const titleBar = document.getElementById("titleBar");
