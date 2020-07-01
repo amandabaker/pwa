@@ -35,9 +35,11 @@ const initializeTitleBar = () => {
   titleBarContainer.classList.add("overlay");
 };
 
-if (window.navigator.controlsOverlay &&
+window.onload = () => {
+  if (window.navigator.controlsOverlay &&
     window.navigator.controlsOverlay.visible) {
   initializeTitleBar();
+  }
 }
 
 const updateWCOInfo = () => {
