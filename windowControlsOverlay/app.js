@@ -47,6 +47,8 @@ const updateWCOInfo = () => {
   const wcoElement = document.getElementById('WCO');
   const visibleElement = document.getElementById('WCOVisible');
   const rectElement = document.getElementById('WCORect');
+  const cssElement = document.getElementById('WCOCss');
+  const cssElementTest = document.getElementById('WCOCssTest');
   if (!navigator.windowControlsOverlay) {
     wcoElement.textContent = "navigator.windowControlsOverlay = undefined";
     visibleElement.textContent = "";
@@ -66,6 +68,11 @@ const updateWCOInfo = () => {
   bottom: ${rect.bottom},
   left: ${rect.left}
 }`;
+
+  cssElement.textContent = 
+`top_inset_left: ${getComputedStyle(cssElementTest).getPropertyValue('padding-left')},
+top_inset_right: ${getComputedStyle(cssElementTest).getPropertyValue('padding-right')}
+`;
   }
 }
 
