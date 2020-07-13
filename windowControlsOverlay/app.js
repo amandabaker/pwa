@@ -26,7 +26,7 @@ const initializeTitleBar = () => {
   const titleBar = document.getElementById("titleBar");
 
   // rect.x will be 0 if the overlay is on the left
-  if (rect.x === 0 && rect.width != 0) {
+  if (rect.x === 0 && rect.right === window.innerWidth) {
     titleBar.classList.add("leftOverlay");
   } else {
     titleBar.classList.add("rightOverlay");
