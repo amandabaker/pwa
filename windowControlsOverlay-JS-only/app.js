@@ -69,5 +69,27 @@ const onResize = () => {
   layoutTitleBarForOverlay();
   updateWCOInfo();
 }
-
 window.addEventListener('resize', onResize);
+
+const onGeometrychange = (event) => {
+  const visibleElement = document.getElementById('WCOEventVisible');
+  const rectElement = document.getElementById('WCOEventRect');
+  visibleElement.textContent = `visible = ${event.visible}`;
+  const rect = event.boundingRect;
+  rectElement.textContent = 
+`getBoundingClientRect() = { 
+  x: ${rect.x},
+  y: ${rect.y},
+  width: ${rect.width},
+  height: ${rect.height},
+  top: ${rect.top},
+  right: ${rect.right},
+  bottom: ${rect.bottom},
+  left: ${rect.left}
+}`;
+}
+
+if (navigator.windowControlsOverlay &&
+    navigator.windowControlsOverlay.ongeometrychange == null) {
+  navigator.windowControlsOverlay.ongeometrychange = onGeometrychange;
+}
