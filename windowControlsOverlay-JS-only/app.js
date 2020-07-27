@@ -71,11 +71,17 @@ const onResize = () => {
 }
 window.addEventListener('resize', onResize);
 
+let eventCount = 0;
 const onGeometrychange = (event) => {
+  eventCount++;
+  const countElement = document.getElementById('eventCount');
+  countElement.textContent = eventCount;
+
   const visibleElement = document.getElementById('WCOEventVisible');
-  const rectElement = document.getElementById('WCOEventRect');
   visibleElement.textContent = `visible = ${event.visible}`;
+  
   const rect = event.boundingRect;
+  const rectElement = document.getElementById('WCOEventRect');
   rectElement.textContent = 
 `getBoundingClientRect() = { 
   x: ${rect.x},
