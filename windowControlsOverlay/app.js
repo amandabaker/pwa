@@ -57,8 +57,8 @@ const updateWCOInfo = () => {
     wcoElement.textContent = "navigator.windowControlsOverlay";
     visibleElement.textContent = `visible = ${navigator.windowControlsOverlay.visible}`;
     const rect = navigator.windowControlsOverlay.getBoundingClientRect();
-    rectElement.textContent = 
-`getBoundingClientRect() = { 
+    rectElement.textContent =
+`getBoundingClientRect() = {
   x: ${rect.x},
   y: ${rect.y},
   width: ${rect.width},
@@ -69,7 +69,7 @@ const updateWCOInfo = () => {
   left: ${rect.left}
 }`;
 
-  cssElement.textContent = 
+  cssElement.textContent =
 `top_inset_left: ${getComputedStyle(cssElementTest).getPropertyValue('padding-left')},
 top_inset_right: ${getComputedStyle(cssElementTest).getPropertyValue('padding-right')}
 `;
@@ -78,9 +78,9 @@ top_inset_right: ${getComputedStyle(cssElementTest).getPropertyValue('padding-ri
 
 updateWCOInfo();
 
-const onResize = () => {
+const onGeometryChange = () => {
   initializeTitleBar();
   updateWCOInfo();
 }
 
-window.addEventListener('resize', onResize);
+navigator.windowControlsOverlay.addEventListener('geometrychange', onGeometryChange);
