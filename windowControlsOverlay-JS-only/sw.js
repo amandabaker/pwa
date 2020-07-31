@@ -1,3 +1,7 @@
-this.addEventListener('fetch', (event) => {
-  event.respondWith(fetch(event.request));
+self.addEventListener('fetch', e => {
+  e.respondWith(
+    fetch(e.request).catch(() => {
+      return new Response('Hello offline page');
+    })
+  );
 });

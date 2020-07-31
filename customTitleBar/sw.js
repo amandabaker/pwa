@@ -4,12 +4,10 @@ this.addEventListener('install', async (event) => {
     // await event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(cachedFiles)));
 });
 
-this.addEventListener('fetch', (event) => {
-    event.respondWith(fetch(event.request));
-    // }, async () => {
-    //     const response = await caches.match(event.request);
-    //     if (response) {
-    //         return response;
-    //     }
-    // }));
-});
+self.addEventListener('fetch', e => {
+    e.respondWith(
+      fetch(e.request).catch(() => {
+        return new Response('Hello offline page');
+      })
+    );
+  });
