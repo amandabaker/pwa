@@ -14,10 +14,12 @@ if (navigator.serviceWorker) {
 
 // initialize the title bar to avoid the caption control overlay which
 // could be in either the top right or top left corner
-// NOTE: this assumes that the browser language will never switch from left to right
-// or vice versa. It can only enable the overlay, but it cannot turn it off (for now).
+// NOTE: this assumes that the browser language will never switch from left to
+// right or vice versa. It can only enable the overlay, but it cannot turn it
+// off (for now).
 const initializeTitleBar = () => {
-  if (!navigator.windowControlsOverlay || !navigator.windowControlsOverlay.visible) {
+  if (!navigator.windowControlsOverlay || 
+      !navigator.windowControlsOverlay.visible) {
     return;
   }
 
@@ -55,7 +57,8 @@ const updateWCOInfo = () => {
     rectElement.textContent = "";
   } else {
     wcoElement.textContent = "navigator.windowControlsOverlay";
-    visibleElement.textContent = `visible = ${navigator.windowControlsOverlay.visible}`;
+    visibleElement.textContent = 
+        `visible = ${navigator.windowControlsOverlay.visible}`;
     const rect = navigator.windowControlsOverlay.getBoundingClientRect();
     rectElement.textContent =
 `getBoundingClientRect() = {
@@ -83,4 +86,9 @@ const onGeometryChange = () => {
   updateWCOInfo();
 }
 
-navigator.windowControlsOverlay.addEventListener('geometrychange', onGeometryChange);
+try {
+  navigator.windowControlsOverlay.addEventListener('geometrychange',
+                                                   onGeometryChange);
+} catch (e) {
+  console.error(e);
+}
