@@ -96,6 +96,10 @@ body {
   white-space: pre;
 }
 
+.red {
+  color: red;
+}
+
 #WCOCssTest {
   padding-left: env(unsafe-area-top-inset-left);
   padding-right: env(unsafe-area-top-inset-right);

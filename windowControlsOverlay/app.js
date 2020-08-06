@@ -91,4 +91,11 @@ try {
                                                    onGeometryChange);
 } catch (e) {
   console.error(e);
+  
+  // Show errors in webpage so it's obvious that something is broken.
+  const errorDiv = document.getElementById("GeometryChangeListenerError");
+  errorDiv.style.visibility = "visible";
+
+  // If geometry change is not enabled, update on resize instead.
+  window.addEventListener('resize', onGeometryChange);
 }
