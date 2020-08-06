@@ -72,10 +72,19 @@ const updateWCOInfo = () => {
   left: ${rect.left}
 }`;
 
+    const paddingLeft = getComputedStyle(cssElementTest).getPropertyValue('padding-left');
+    const paddingRight = getComputedStyle(cssElementTest).getPropertyValue('padding-right');
   cssElement.textContent =
-`top_inset_left: ${getComputedStyle(cssElementTest).getPropertyValue('padding-left')},
-top_inset_right: ${getComputedStyle(cssElementTest).getPropertyValue('padding-right')}
+`top_inset_left: ${paddingLeft},
+top_inset_right: ${paddingRight}
 `;
+
+    const cssError = document.getElementById("CSSEnvsEvaluateTo0");
+    if (paddingLeft == "0px" && paddingRight == "0px") {
+      cssError.style.visibility = "visible";
+    } else {
+      cssError.style.visibility = "hidden";
+    }
   }
 }
 
