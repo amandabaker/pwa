@@ -1,0 +1,16 @@
+{
+  "name": "Display: 'window-controls-overlay' (shouldn't be installable)",
+  "display": "window-controls-overlay",
+  "start_url": "./index.html",
+  "theme_color": "#30b89c",
+  "icons": [
+    {
+      "src": "48x48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "144x144.png",
+      "sizes": "144x144"
+    }
+  ]
+}
