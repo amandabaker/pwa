@@ -1,7 +1,7 @@
 {
   "name": "Display: 'window-controls-overlay' (shouldn't be installable)",
   "display": "window-controls-overlay",
-  "display_override": "something-invalid",
+  "display_override": [ "something-invalid" ],
   "start_url": "./index.html",
   "theme_color": "#30b89c",
   "icons": [
