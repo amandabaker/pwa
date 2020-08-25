@@ -4,6 +4,9 @@
 
     "background_color": "#111111",
     "display": "fullscreen",
+    "display_override": [
+      "window-controls-overlay"
+    ],
     "scope": "https://amandabaker.github.io/pwa/sample/",
     "serviceworker": {
         "src": "./sw.js",

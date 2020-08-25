@@ -4,6 +4,9 @@
   "display_modifiers": [
     "window-controls-overlay"
   ],
+  "display_override": [
+    "window-controls-overlay"
+  ],
   "start_url": "./index.html",
   "theme_color": "#254B85",
   "icons": [
