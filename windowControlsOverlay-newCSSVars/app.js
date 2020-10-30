@@ -1,7 +1,7 @@
 
 const registerServiceWorker = async () => {
   try {
-    await navigator.serviceWorker.register('/pwa/windowControlsOverlay/sw.js', { scope: '/pwa/windowControlsOverlay/'});
+    await navigator.serviceWorker.register('/pwa/windowControlsOverlay-newCSSVars/sw.js', { scope: '/pwa/windowControlsOverlay-newCSSVars/'});
     console.log('Service worker registered');
   } catch (e) {
     console.log(`Registration failed: ${e}`);
