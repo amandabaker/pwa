@@ -75,8 +75,8 @@ const updateWCOInfo = () => {
     const paddingLeft = getComputedStyle(cssElementTest).getPropertyValue('padding-left');
     const paddingRight = getComputedStyle(cssElementTest).getPropertyValue('padding-right');
   cssElement.textContent =
-`top_inset_left: ${paddingLeft},
-top_inset_right: ${paddingRight}
+`titlebar-area-inset-left: ${paddingLeft},
+titlebar-area-inset-right: ${paddingRight}
 `;
 
     const cssError = document.getElementById("CSSEnvsEvaluateTo0");
