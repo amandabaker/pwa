@@ -4,5 +4,13 @@
   "display_override": [ 
     "window-controls-overlay" 
   ],
-  "theme_color": "#254B85"
+  "theme_color": "#254B85",
+
+  "start_url": "./index.html",
+  "icons": [
+    {
+      "src": "144x144.png",
+      "sizes": "144x144"
+    }
+  ]
 }
