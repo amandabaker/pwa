@@ -3,11 +3,13 @@
 }
 
 .draggable {
-  app-region: drag;
+  /* app-region: drag; Not yet implemented */
+  -webkit-app-region: drag;
 }
 
 .nonDraggable {
-  app-region: no-drag;
+  /* app-region: no-drag; Not yet implemented */
+  -webkit-app-region: no-drag;
 }
 
 body {
