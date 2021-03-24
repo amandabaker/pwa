@@ -4,24 +4,24 @@
 
   /* The idea is that we will be able to override these for testing,
      but it can also work properly once the env()s are implemented(). */
-  --titlebar-area-inset-left: env(titlebar-area-inset-left);
-  --titlebar-area-inset-right: env(titlebar-area-inset-right);
-  --titlebar-area-inset-top: env(titlebar-area-inset-top);
-  --titlebar-area-inset-bottom: env(titlebar-area-inset-bottom);
+  --titlebar-area-x: env(titlebar-area-x);
+  --titlebar-area-width: env(titlebar-area-width);
+  --titlebar-area-y: env(titlebar-area-y);
+  --titlebar-area-height: env(titlebar-area-height);
 }
 
 :root.emulateWin {
-  --titlebar-area-inset-left: 0;
-  --titlebar-area-inset-right: 150px;
-  --titlebar-area-inset-top: 0;
-  --titlebar-area-inset-bottom: calc(100% - 33px);
+  --titlebar-area-x: 0;
+  --titlebar-area-width: calc(100% - 150px);
+  --titlebar-area-y: 0;
+  --titlebar-area-height: 32px; /* It's either 32 or 33px */
 }
 
 :root.emulateMac {
-  --titlebar-area-inset-left: 50px;
-  --titlebar-area-inset-right: 50px;
-  --titlebar-area-inset-top: 0;
-  --titlebar-area-inset-bottom: calc(100% - 33px);
+  --titlebar-area-x: 50px;
+  --titlebar-area-width: calc(100% - 100px);
+  --titlebar-area-y: 0;
+  --titlebar-area-height: 26px; /* Mac titlebar is shorter than Windows, but idr how short. this is a guesstimate */
 }
   
 body {
@@ -31,26 +31,20 @@ body {
 
 #titleBarContainer {
   position: absolute;
-  /* this is assuming that the CSS env()s are undefined when they don't have values. */
-  /* top: env(titlebar-area-inset-top, 0);
-  bottom: env(titlebar-area-inset-bottom, calc(100% - var(--fallback-title-bar-height))); */
-  top: var(--titlebar-area-inset-top, 0);
-  bottom: var(--titlebar-area-inset-bottom, calc(100% - var(--fallback-title-bar-height)));
+  top: var(--titlebar-area-y, 0);
+  height: var(--titlebar-area-height, var(--fallback-title-bar-height));
   width: 100%;
   background-color: var(--theme-color);
 }
 
 #titleBar {
   position: absolute;
-  /* top: env(titlebar-area-inset-top, 0); */
-  top: var(--titlebar-area-inset-top, 0);
+  top: var(--titlebar-area-y, 0);
   display: flex;
   user-select: none;
   height: 100%;
-  /* left: env(titlebar-area-inset-left, 0);
-  right: env(titlebar-area-inset-right, 0);  */
-  left: var(--titlebar-area-inset-left, 0);
-  right: var(--titlebar-area-inset-right, 0);
+  left: var(--titlebar-area-x, 0);
+  width: var(--titlebar-area-width, 100%);
 
   color: #FFFFFF;
   font-weight: bold;
@@ -90,14 +84,13 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  /* height: env(titlebar-area-inset-bottom, calc(100% - var(--fallback-title-bar-height))); */
-  height: var(--titlebar-area-inset-bottom, calc(100% - var(--fallback-title-bar-height)));
+  top: var(--titlebar-area-height, var(--fallback-title-bar-height));
   bottom: 0;
   overflow-y: scroll;
 }
 
 #mainContent.overlay {
-  top: env(safe-area-inset-top);
+  top: env(safe-area-y);
 }
 
 .overflowingDiv {
@@ -115,14 +108,10 @@ body {
 }
 
 #WCOCssTest {
-  /* padding-left: env(titlebar-area-top-inset-left);
-  padding-right: env(titlebar-area-top-inset-right);
-  padding-top: env(titlebar-area-inset-top);
-  padding-bottom: env(titlebar-area-inset-bottom); */
-  padding-left: var(--titlebar-area-inset-left);
-  padding-right: var(--titlebar-area-inset-right);
-  padding-top: var(--titlebar-area-inset-top);
-  padding-bottom: var(--titlebar-area-inset-bottom);
+  padding-left: var(--titlebar-area-x);
+  padding-right: var(--titlebar-area-width);
+  padding-top: var(--titlebar-area-y);
+  padding-bottom: var(--titlebar-area-height);
   width: 50px;
   height: 50px;
   position: absolute;

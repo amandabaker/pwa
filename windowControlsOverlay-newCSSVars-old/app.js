@@ -1,7 +1,7 @@
 
 const registerServiceWorker = async () => {
   try {
-    await navigator.serviceWorker.register('/pwa/windowControlsOverlay-newCSSVars/sw.js', { scope: '/pwa/windowControlsOverlay-newCSSVars/'});
+    await navigator.serviceWorker.register('/pwa/windowControlsOverlay-newCSSVars-old/sw.js', { scope: '/pwa/windowControlsOverlay-newCSSVars-old/'});
     console.log('Service worker registered');
   } catch (e) {
     console.log(`Registration failed: ${e}`);
@@ -61,16 +61,15 @@ const updateWCOInfo = () => {
   left: ${rect.left}
 }`;
 
-    // This mapping should match the #WCOCssTest style in ./style.css
-    const x_paddingLeft = getComputedStyle(cssElementTest).getPropertyValue('padding-left');
-    const width_paddingRight = getComputedStyle(cssElementTest).getPropertyValue('padding-right');
-    const y_paddingTop = getComputedStyle(cssElementTest).getPropertyValue('padding-top');
-    const height_paddingBottom= getComputedStyle(cssElementTest).getPropertyValue('padding-bottom');
+    const paddingLeft = getComputedStyle(cssElementTest).getPropertyValue('padding-left');
+    const paddingRight = getComputedStyle(cssElementTest).getPropertyValue('padding-right');
+    const paddingTop = getComputedStyle(cssElementTest).getPropertyValue('padding-top');
+    const paddingBottom= getComputedStyle(cssElementTest).getPropertyValue('padding-bottom');
   cssElement.textContent =
-`titlebar-area-x: ${x_paddingLeft},
-titlebar-area-width: ${width_paddingRight},
-titlebar-area-y: ${y_paddingTop},
-titlebar-area-height: ${height_paddingBottom},
+`titlebar-area-inset-left: ${paddingLeft},
+titlebar-area-inset-right: ${paddingRight},
+titlebar-area-inset-top: ${paddingTop},
+titlebar-area-inset-bottom: ${paddingBottom},
 `;
 
     const cssError = document.getElementById("CSSEnvsEvaluateTo0");
