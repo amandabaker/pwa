@@ -74,7 +74,7 @@ titlebar-area-height: ${height_paddingBottom},
 `;
 
     const cssError = document.getElementById("CSSEnvsEvaluateTo0");
-    if (paddingLeft == "0px" && paddingRight == "0px") {
+    if (height_paddingBottom == "0px" && width_paddingRight == "0px") {
       cssError.style.visibility = "visible";
     } else {
       cssError.style.visibility = "hidden";
