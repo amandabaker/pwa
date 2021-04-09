@@ -8,8 +8,8 @@
     "window-controls-overlay"
   ],
   "start_url": "./index.html",
-  "theme_color": "#10826b",
-  "background_color": "#10826b",
+  "theme_color": "#09b541",
+  "background_color": "#09b541",
   "icons": [
     {
       "src": "48x48.png",
