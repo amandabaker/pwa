@@ -1,5 +1,5 @@
 {
-  "name": "Window Controls Overlay App with NEW css envs! 😮",
+  "name": "Empty Window Controls Overlay App",
   "display": "standalone",
   "display_modifiers": [
     "window-controls-overlay"
@@ -8,8 +8,8 @@
     "window-controls-overlay"
   ],
   "start_url": "./index.html",
-  "theme_color": "#09b541",
-  "background_color": "#09b541",
+  "theme_color": "#10826b",
+  "background_color": "#10826b",
   "icons": [
     {
       "src": "48x48.png",
