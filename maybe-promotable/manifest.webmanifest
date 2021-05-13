@@ -1,0 +1,17 @@
+{
+  "name": "this site as an app. It has already been verified by Chrome, and can be launched in a standalone window",
+  "short_name": "Just an app 😉",
+  "display": "standalone",
+  "start_url": "./index.html",
+  "theme_color": "#254B85",
+  "icons": [
+    {
+      "src": "48x48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "144x144.png",
+      "sizes": "144x144"
+    }
+  ]
+}
