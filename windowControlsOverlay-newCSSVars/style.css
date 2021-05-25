@@ -114,5 +114,4 @@ body {
   padding-bottom: env(titlebar-area-height, 123.45px);
   width: 50px;
   height: 50px;
-  position: absolute;
 }
