@@ -23,7 +23,7 @@
   --titlebar-area-y: 0;
   --titlebar-area-height: 26px; /* Mac titlebar is shorter than Windows, but idr how short. this is a guesstimate */
 }
-  
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -108,10 +108,10 @@ body {
 }
 
 #WCOCssTest {
-  padding-left: var(--titlebar-area-x);
-  padding-right: var(--titlebar-area-width);
-  padding-top: var(--titlebar-area-y);
-  padding-bottom: var(--titlebar-area-height);
+  padding-left: env(titlebar-area-x, 123.45px);
+  padding-right: env(titlebar-area-width, 123.45px);
+  padding-top: env(titlebar-area-y, 123.45px);
+  padding-bottom: env(titlebar-area-height, 123.45px);
   width: 50px;
   height: 50px;
   position: absolute;
