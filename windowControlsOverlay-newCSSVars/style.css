@@ -10,6 +10,12 @@
   --titlebar-area-height: env(titlebar-area-height);
 }
 
+@media (forced-colors: active) {
+  :root {
+    --theme-color: ActiveText;
+  }
+}
+
 :root.emulateWin {
   --titlebar-area-x: 0;
   --titlebar-area-width: calc(100% - 150px);
