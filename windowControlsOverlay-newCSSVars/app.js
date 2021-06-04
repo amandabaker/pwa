@@ -51,7 +51,7 @@ const toggleHCThemeColor = () => {
   const themeColorElement = document.createElement("meta");
   themeColorElement.name = "theme-color";
   // To-do: Update value to match HC background color. 
-  themeColorElement.content = getComputedStyle(document.documentElement,null).getPropertyValue('--theme-color');
+  themeColorElement.content = getComputedStyle(document.getElementById("titleBarContainer")).getPropertyValue('background-color');
   document.head.appendChild(themeColorElement);
 }
 
