@@ -36,6 +36,25 @@ const emulateMac = () => {
   updateWCOInfo();
 }
 
+// Button handler for changing theme-color via meta tag
+const toggleHCThemeColor = () => {
+  const oldThemeColorElement = 
+      document.getElementsByTagName('meta').namedItem("theme-color");
+  
+  // If there was an existing theme-color element, delete it. 
+  if (oldThemeColorElement){
+    oldThemeColorElement.remove();
+    return;
+  }
+
+  // Otherwise, add one. 
+  const themeColorElement = document.createElement("meta");
+  themeColorElement.name = "theme-color";
+  // To-do: Update value to match HC background color. 
+  themeColorElement.content = "#FF0000";
+  document.head.appendChild(themeColorElement);
+}
+
 const logJSBounds = () => {
   const wcoElement = document.getElementById('WCO');
   const visibleElement = document.getElementById('WCOVisible');
