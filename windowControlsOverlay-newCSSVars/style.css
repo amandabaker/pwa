@@ -12,7 +12,11 @@
 
 @media (forced-colors: active) {
   :root {
-    --theme-color: ActiveText;
+    --theme-color: Canvas;
+  }
+
+  #titleBarContainer {
+    border-bottom: 1px solid ButtonText;
   }
 }
 
