@@ -94,7 +94,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  top: var(--titlebar-area-height, var(--fallback-title-bar-height)) + 1;
+  top: calc(var(--titlebar-area-height, var(--fallback-title-bar-height)) + 1px);
   bottom: 0;
   overflow-y: scroll;
 }
