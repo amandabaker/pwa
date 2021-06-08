@@ -10,16 +10,6 @@
   --titlebar-area-height: env(titlebar-area-height);
 }
 
-@media (forced-colors: active) {
-  :root {
-    --theme-color: Canvas;
-  }
-
-  #titleBarContainer {
-    border-bottom: 1px solid ButtonText;
-  }
-}
-
 :root.emulateWin {
   --titlebar-area-x: 0;
   --titlebar-area-width: calc(100% - 150px);
@@ -94,7 +84,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  top: calc(var(--titlebar-area-height, var(--fallback-title-bar-height)) + 1px);
+  top: var(--titlebar-area-height, var(--fallback-title-bar-height));
   bottom: 0;
   overflow-y: scroll;
 }
@@ -124,4 +114,18 @@ body {
   padding-bottom: env(titlebar-area-height, 123.45px);
   width: 50px;
   height: 50px;
+}
+
+@media (forced-colors: active) {
+  :root {
+    --theme-color: Canvas;
+  }
+
+  #titleBarContainer {
+    border-bottom: 1px solid ButtonText;
+  }
+
+  #mainContent {
+    top: calc(var(--titlebar-area-height, var(--fallback-title-bar-height)) + 1px);
+  }
 }
