@@ -50,10 +50,14 @@ const toggleHCThemeColor = () => {
   // Otherwise, add one. 
   const themeColorElement = document.createElement("meta");
   themeColorElement.name = "theme-color";
-  // To-do: Update value to match HC background color. 
-  // themeColorElement.content = "#FF0000";
-  themeColorElement.content = getComputedStyle(document.documentElement,null).getPropertyValue('--theme-color');
-  // themeColorElement.content = getComputedStyle(document.getElementById("titleBarContainer")).getPropertyValue('background-color');
+  // Commented code below does not work since it returns the color name,
+  //  e.g. "ActiveText". I'm just leaving it as a reminder that this approach 
+  // was attempted at one point, so don't try again. 
+  // themeColorElement.content = 
+  //   getComputedStyle(document.documentElement).getPropertyValue('--theme-color');
+  themeColorElement.content = 
+      getComputedStyle(document.getElementById("titleBarContainer"))
+      .getPropertyValue('background-color');
   document.head.appendChild(themeColorElement);
 }
 
