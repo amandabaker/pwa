@@ -1,0 +1,13 @@
+body.iframe {
+  touch-action: auto;
+  margin: 25px;
+}
+
+#mainContent {
+  overflow: hidden;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}

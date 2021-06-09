@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Window Controls Overlay App</title>
+  <title>Window Controls Overlay App - Other page</title>
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="./manifest.webmanifest">
 </head>
@@ -18,35 +18,8 @@
   </div>
   <div id="mainContent">
     <div class="overflowingDiv">
-      <div>
-        <p>Disclaimer: This is not well tested. There is a 56.7% chance of jank. Be warned.</p>
-        <div id="buttons">
-          <button onclick="resetEmulation()">Reset Emulation</button>
-          <button onclick="emulateWin()">Emulate Windows</button>
-          <button onclick="emulateMac()">Emulate Mac</button>
-        </div>
-        <p id="WCO" class="mono">navigator.windowControlsOverlay</p>
-        <p id="WCOVisible" class="mono"></p>
-        <div id="WCORect" class="mono"></div>
-        <div id="WCOCss" class="mono"></div>
-        <p id="WCOGeometrychangeCount" class="mono"></p>
-        <div id="Errors" class="red">
-          <div id="GeometryChangeListenerError" style="visibility: hidden">
-            Failed to add <span class='mono'>geometrychange</span> event listener to
-            <span class='mono'>navigator.windowControlsOverlay</span>.
-          </div>
-          <div id="CSSEnvsEmptyRect" style="visibility: hidden">
-            The height and width CSS variables evaluate to <span class="mono">0px</span>.
-          </div>
-        </div>
-        <div>
-          <div><a href="otherPage.html">Other Page</a></div>
-          <div><a href="touch-zoom-test/index.html">Pinch Zoom iframe Test Page</a></div>
-          <div><a href="red.html">theme-color Red</a></div>
-          <div><a href="blue-da-ba-dee-da-ba-die.html">theme-color Blue</a></div>
-          <div><button onclick="toggleHCThemeColor()">Change theme-color meta tag</button></div>
-        </div>
-      </div>
+      <p>This is another page within the app.</p>
+      <a href="./index.html">Return to main page</a>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Eget magna fermentum iaculis eu. Faucibus ornare suspendisse sed nisi lacus sed viverra tellus in.
         Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim. Mi quis hendrerit dolor magna. Duis
@@ -84,11 +57,8 @@
         ac turpis egestas integer. Mauris vitae ultricies leo integer malesuada nunc. Orci sagittis eu volutpat odio
         facilisis mauris. Fermentum iaculis eu non diam. Duis ultricies lacus sed turpis tincidunt id aliquet risus
         feugiat.</p>
-      <iframe src="iframe.html"></iframe>
     </div>
   </div>
-  <div id="WCOCssTest"></div>
 </body>
-<script src="app.js"></script>
 
 </html>
