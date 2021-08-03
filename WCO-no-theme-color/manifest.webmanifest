@@ -1,7 +1,9 @@
 {
   "name": "A WCO PWA without a theme_color",
   "display": "standalone",
-  "display_override": "window-controls-overlay",
+  "display_override": [
+    "window-controls-overlay"
+  ],
   "start_url": "./index.html",
   "icons": [
     {
