@@ -1,0 +1,23 @@
+html, body, .fill {
+  margin: 0;
+  height: 100%;
+}
+
+.box {
+  border: 1px solid black;
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+}
+
+.some-extra-padding {
+  margin: 20px;
+}
+
+.draggable {
+  app-region: drag;
+}
+
+.non-draggable {
+  app-region: no-drag;
+}

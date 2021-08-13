@@ -1,0 +1,20 @@
+{
+  "name": "WCO App with unprefixed app-region",
+  "short_name": "WCO app-region",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay"
+  ],
+  "start_url": "./index.html",
+  "theme_color": "#CCCCCC",
+  "icons": [
+    {
+      "src": "48x48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "144x144.png",
+      "sizes": "144x144"
+    }
+  ]
+}
