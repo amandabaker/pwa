@@ -1,9 +1,6 @@
 {
   "name": "Window Controls Overlay App with NEW css envs! 😮",
-  "display": "standalone",
-  "display_modifiers": [
-    "window-controls-overlay"
-  ],
+  "display": "fullscreen",
   "display_override": [
     "window-controls-overlay"
   ],
