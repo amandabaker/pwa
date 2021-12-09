@@ -103,6 +103,37 @@ const logJSTitlebarAreaRect = (rectElement) => {
   logRect("getTitlebarAreaRect", rect, rectElement);
 }
 
+const logGeometryChangePayload = (event) => {
+  const geometrychangePayloadElement = document.getElementById('WCOGeometrychangePayload');
+  let rectName;
+  let rect;
+  if (event.boundingRect) {
+    rectName = "boundingRect";
+    rect = event.boundingRect;
+  } else if (event.titlebarAreaRect) {
+    rectName = "titlebarAreaRect";
+    rect = event.titlebarAreaRect;
+  }
+
+  const visible = event.visible;
+
+  geometrychangePayloadElement.textContent = 
+`geometrychange event payload: {
+  ${rectName} = {
+    x: ${rect.x},
+    y: ${rect.y},
+    width: ${rect.width},
+    height: ${rect.height},
+    top: ${rect.top},
+    right: ${rect.right},
+    bottom: ${rect.bottom},
+    left: ${rect.left}
+  },
+  visible: ${visible}
+}
+`;
+}
+
 const logRect = (functionName, rect, element) => {
   element.textContent =
 `${functionName}() = {
@@ -155,19 +186,22 @@ titlebar-area-height: ${height},
 }
 
 // Logging stuff in UI should all go below here.
-const updateWCOInfo = () => {
+const updateWCOInfo = (event) => {
   logJSRects();
   logCSSRect();
 
   const geometrychangeCountElement = document.getElementById('WCOGeometrychangeCount');
   geometrychangeCountElement.textContent = `geometrychange count: ${geometrychangeCount}`;
 
+  if (event) {
+    logGeometryChangePayload(event);
+  }
 }
 updateWCOInfo();
 
-const onGeometryChange = () => {
+const onGeometryChange = (event) => {
   geometrychangeCount++;
-  updateWCOInfo();
+  updateWCOInfo(event);
 }
 
 try {
