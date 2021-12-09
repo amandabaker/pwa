@@ -61,24 +61,51 @@ const toggleHCThemeColor = () => {
   document.head.appendChild(themeColorElement);
 }
 
-const logJSBounds = () => {
+const logJSRects = () => {
   const wcoElement = document.getElementById('WCO');
   const visibleElement = document.getElementById('WCOVisible');
-  const rectElement = document.getElementById('WCORect');
+  const boundingRectElement = document.getElementById('WCOBoundingRect');
+  const titlebarAreaRectElement = document.getElementById('WCOTitlebarAreaRect');
 
   if (!navigator.windowControlsOverlay) {
     wcoElement.textContent = "navigator.windowControlsOverlay = undefined";
     visibleElement.textContent = "";
-    rectElement.textContent = "";
+    boundingRectElement.textContent = "";
+    titlebarAreaRectElement.textContent = "";
     return;
   }
 
   wcoElement.textContent = "navigator.windowControlsOverlay";
   visibleElement.textContent =
       `visible = ${navigator.windowControlsOverlay.visible}`;
+
+  logJSBoundingRect(boundingRectElement);
+  logJSTitlebarAreaRect(titlebarAreaRectElement);
+}
+
+const logJSBoundingRect = (rectElement) => {
+  if (!navigator.windowControlsOverlay.getBoundingClientRect) {
+    rectElement.textContent = "getBoundingClientRect() is not defined.";
+    return;
+  }
+
   const rect = navigator.windowControlsOverlay.getBoundingClientRect();
-  rectElement.textContent =
-`getBoundingClientRect() = {
+  logRect("getBoundingClientRect", rect, rectElement);
+}
+
+const logJSTitlebarAreaRect = (rectElement) => {
+  if (!navigator.windowControlsOverlay.getTitlebarAreaRect) {
+    rectElement.textContent = "getTitlebarAreaRect() is not defined.";
+    return;
+  }
+
+  const rect = navigator.windowControlsOverlay.getTitlebarAreaRect();
+  logRect("getTitlebarAreaRect", rect, rectElement);
+}
+
+const logRect = (functionName, rect, element) => {
+  element.textContent =
+`${functionName}() = {
   x: ${rect.x},
   y: ${rect.y},
   width: ${rect.width},
@@ -129,7 +156,7 @@ titlebar-area-height: ${height},
 
 // Logging stuff in UI should all go below here.
 const updateWCOInfo = () => {
-  logJSBounds();
+  logJSRects();
   logCSSRect();
 
   const geometrychangeCountElement = document.getElementById('WCOGeometrychangeCount');

@@ -20,7 +20,7 @@
   </div>
   <div id="mainContent">
     <div class="overflowingDiv">
-      <div>
+      <div id="logs">
         <p>These emulation buttons mock out the JS APIs and CSS envs to show what the app would look like if WCO were enabled.</p>
         <p>They are not needed if the current browser supports WCO and the app is installed and launched in a standalone window.</p>
         <div id="buttons">
@@ -30,7 +30,8 @@
         </div>
         <p id="WCO" class="mono">navigator.windowControlsOverlay</p>
         <p id="WCOVisible" class="mono"></p>
-        <div id="WCORect" class="mono"></div>
+        <div id="WCOBoundingRect" class="mono"></div>
+        <div id="WCOTitlebarAreaRect" class="mono"></div>
         <div id="WCOCss" class="mono"></div>
         <p id="WCOGeometrychangeCount" class="mono"></p>
         <div id="Errors" class="red">
