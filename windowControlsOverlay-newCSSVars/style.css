@@ -44,7 +44,6 @@ body {
 }
 
 #titleBar {
-  position: fixed;
   top: var(--titlebar-area-y, 0);
   display: flex;
   user-select: none;
