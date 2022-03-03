@@ -5,11 +5,11 @@
   "theme_color": "#254B85",
   "icons": [
     {
-      "src": "48x48.png",
+      "src": "48x48_new.png",
       "sizes": "48x48"
     },
     {
-      "src": "144x144.png",
+      "src": "144x144_new.png",
       "sizes": "144x144"
     }
   ]
