@@ -18,3 +18,7 @@ const clickCountElement = document.getElementById("clickCount");
 document.getElementById("clickMe").addEventListener("click", (event) => {
     clickCountElement.textContent = ++count;    
 });
+
+window.addEventListener('appinstalled', (event) => {
+    console.log('appinstalled against Window');
+});

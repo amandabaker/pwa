@@ -23,3 +23,8 @@ this.addEventListener('fetch', (event) => {
         }
     }));
 });
+
+this.addEventListener('appinstall', (event) => {
+    console.log(event);
+    console.log('appinstall in SW');
+});
