@@ -43,7 +43,7 @@
       "backgrounds": [
         {
           "src": "icons/background.png",
-          "sizes": "600x400.png"
+          "sizes": "600x400"
         }
       ],
       "auth": false,
