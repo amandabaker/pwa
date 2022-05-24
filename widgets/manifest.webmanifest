@@ -9,11 +9,11 @@
   "start_url": "https://amandabaker.github.io/pwa/widgets/",
   "icons": [
     {
-      "src": "48x48.png",
+      "src": "/icons/48x48.png",
       "sizes": "48x48"
     },
     {
-      "src": "144x144.png",
+      "src": "/icons/144x144.png",
       "sizes": "144x144"
     }
   ],
