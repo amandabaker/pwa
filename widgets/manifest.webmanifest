@@ -1,0 +1,67 @@
+{
+  "short_name": "Widgets App",
+  "name": "Widgets Sample App",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay"
+  ],
+  "scope": "https://amandabaker.github.io/pwa/widgets/",
+  "start_url": "https://amandabaker.github.io/pwa/widgets/",
+  "icons": [
+    {
+      "src": "48x48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "144x144.png",
+      "sizes": "144x144"
+    }
+  ],
+  "widgets": [
+    {
+      "name": "Max AC",
+      "tag": "max_ac",
+      "template": "test",
+      "data": "/cards/data.json",
+      "type": "application/json",
+      "ms_ac_template": "/cards/test.ac.json",
+
+      "short_name": "Max",
+      "screenshots": [
+        {
+          "src": "/icons/screenshot.png",
+          "sizes": "600x400",
+          "label": "Test screenshot"
+        }
+      ],
+      "icons": [
+        {
+          "src": "/icons/48x48.png",
+          "sizes": "48x48"
+        }
+      ],
+      "backgrounds": [
+        {
+          "src": "/icons/background.png",
+          "sizes": "600x400.png"
+        }
+      ],
+      "auth": false,
+      "update": 100,
+      "actions": [
+        {
+          "action": "buttonClick",
+          "title": "Button Click"
+        }
+      ]
+    },
+    {
+      "name": "Min AC",
+      "tag": "min_ac",
+      "template": "test",
+      "data": "/cards/data.json",
+      "type": "application/json",
+      "ms_ac_template": "/cards/test.ac.json"
+    }
+  ]
+}
