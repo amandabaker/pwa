@@ -36,6 +36,7 @@ body {
 
 #titleBarContainer {
   position: fixed;
+  z-index: 2;
   top: var(--titlebar-area-y, 0);
   height: var(--titlebar-area-height, var(--fallback-title-bar-height));
   width: 100%;
@@ -86,6 +87,7 @@ body {
 
 #mainContent {
   position: absolute;
+  z-index:1;
   left: 0;
   right: 0;
   bottom: 0;
