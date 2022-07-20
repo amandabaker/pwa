@@ -21,6 +21,7 @@ body {
   position: absolute;
   top: env(titlebar-area-y, 0);
   height: env(titlebar-area-height, var(--fallback-title-bar-height));
+  left:env(--titlebar-area-x, 0);
   width: 100%;
   background-color:#254B85;
 }
