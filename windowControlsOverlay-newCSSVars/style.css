@@ -35,6 +35,7 @@ body {
 }
 
 #titleBarContainer {
+  left: var(--titlebar-area-x, 0);
   position: fixed;
   z-index: 2;
   top: var(--titlebar-area-y, 0);
