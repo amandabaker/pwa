@@ -18,7 +18,7 @@ body {
 }
 
 #titleBarContainer {
-  position: absolute;
+  position: fixed;
   top: env(titlebar-area-y, 0);
   height: env(titlebar-area-height, var(--fallback-title-bar-height));
   left:env(--titlebar-area-x, 0);
@@ -27,7 +27,7 @@ body {
 }
 
 #titleBar {
-  position: absolute;
+  position: fixed;
   top: 0;
   display: flex;
   user-select: none;
