@@ -28,7 +28,7 @@ body {
 
 #titleBar {
   position: fixed;
-  height: env(titlebar-area-height, 0);
+  height: env(titlebar-area-height, var(--fallback-title-bar-height));
   left: env(titlebar-area-x, 0);
   width: env(titlebar-area-width, 100%);
   top: 0;
