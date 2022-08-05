@@ -1,0 +1,13 @@
+{
+  "short_name": "SW Scope test",
+  "name": "How Does Scope Work?",
+  "display": "standalone",
+  "scope": "https://amandabaker.github.io/pwa/how-does-scope-work/app",
+  "start_url": "https://amandabaker.github.io/pwa/how-does-scope-work/app",
+  "icons": [
+    {
+      "src": "48x48.png",
+      "sizes": "48x48"
+    }
+  ]
+}
