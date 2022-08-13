@@ -36,3 +36,17 @@ const updateByInstanceId = async () => {
   const sw = await navigator.serviceWorker.getRegistration();
   sw.active.postMessage(`updateByInstanceId;${instanceId}`);
 };
+
+const onInputKeydown = (event, action) => {
+  if (event.key == 'Enter')
+    action(event.target.value);
+}
+
+document.getElementById('getByTagInput').addEventListener('keydown', (event) => {
+    onInputKeydown(event, getByTag)});
+document.getElementById('getByInstanceIdInput').addEventListener('keydown', (event) => {
+    onInputKeydown(event, getByInstanceId)});
+document.getElementById('updateByTagInput').addEventListener('keydown', (event) => {
+    onInputKeydown(event, updateByTag)});
+document.getElementById('updateByInstanceIdInput').addEventListener('keydown', (event) => {
+      onInputKeydown(event, updateByInstanceId)});
