@@ -14,9 +14,15 @@ self.addEventListener('widgetclick', e => {
   e.waitUntil(console.log(e));
 });
 
-const getByTag = async () => {
-  const widgets = await self.widgets.getByTag('max_ac');
-  console.log('getByTag returned:');
+const getByTag = async (tag) => {
+  const widgets = await self.widgets.getByTag(tag);
+  console.log(`getByTag(${tag}) returned:`);
+  console.log(widgets);
+};
+
+const getByInstanceId = async (tag) => {
+  const widgets = await self.widgets.getByInstanceId(tag);
+  console.log(`getByInstanceId(${tag}) returned:`);
   console.log(widgets);
 };
 
@@ -25,23 +31,40 @@ const matchAll = async () => {
   console.log(widgets);
 };
 
-const updateByTag = async () => {
-  const widgets = await self.widgets.updateByTag('max-ac', '{ "some": "content" }');
-  console.log(widgets);
+const updateByTag = async (tag) => {
+  await self.widgets.updateByTag(tag, '{ "data": "content" }');
+  console.log(`Widget updated`);
+};
+
+const updateByInstanceId = async (instanceId) => {
+  await self.widgets.updateByInstanceId(instanceId, '{ "data": "content" }');
+  console.log(`Widget updated`);
 };
 
 self.onmessage = (event) => {
   console.log('Request: ' + event.data);
 
-  switch (event.data) {
+  const tokens = event.data.split(';');
+  if (tokens.length > 2)
+    console.log('Input included a semicolon. This is used as a separator, so anything after it will be dropped.');
+
+  const action = tokens[0];
+  const inputData = tokens.length > 1 ? tokens[1] : "";
+  switch (action) {
     case 'getByTag':
-      getByTag();
+      getByTag(inputData);
+      break;
+    case 'getByInstanceId':
+      getByInstanceId(inputData);
       break;
     case 'matchAll':
       matchAll();
       break;
     case 'updateByTag':
-      updateByTag();
+      updateByTag(inputData);
+      break;
+    case 'updateByInstanceId':
+      updateByInstanceId(inputData);
       break;
     default:
       console.log('Not sure what to do with that...');

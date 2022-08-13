@@ -8,18 +8,36 @@
   <link rel="manifest" href="./manifest.webmanifest">
 </head>
 
-<body>
+<body style="padding:20px">
   See the result of these actions in the console.
   <div id="buttonContainer" style="padding-top:20px">
-    <button onclick="getByTag()">Get by Tag</button>
-    <button onclick="matchAll()">Match All</button>
-    <button onclick="updateByTag()">Update by Tag</button>
+    <div>
+      <button onclick="getByTag()">Get by Tag</button>
+      <input id="getByTagInput" type="text" placeholder="tag">
+    </div>
+    <div>
+      <button onclick="getByInstanceId()">Get by Instance ID</button>
+      <input id="getByInstanceIdInput" type="text" placeholder="instance_id">
+    </div>
+    <div>
+      <button onclick="updateByTag()">Update by Tag</button>
+      <input id="updateByTagInput" type="text" placeholder="tag">
+    </div>
+    <div>
+      <button onclick="updateByInstanceId()">Update by Instance ID</button>
+      <input id="updateByInstanceIdInput" type="text" placeholder="instance_id">
+    </div>
+    <div>
+      <button onclick="matchAll()">Match All</button>
+    </div>
   </div>
-  <div id="todoList" style="padding:20px">
-    <li>Add UpdateByTag/InstanceId with user input</li>
+  <div id="todoList" style="padding-top:20px">
+  To-do:
+  <ul>
     <li>Add update payload</li>
     <li>MatchAll options</li>
     <li>Make this look less terrible</li>
+  </ul>
   </div>
 </body>
 <script src="app.js"></script>
