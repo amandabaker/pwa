@@ -104,14 +104,8 @@ const updateByInstanceId = async (instanceId) => {
 };
 
 self.onmessage = (event) => {
-  console.log('Request: ' + event.data);
-
-  const tokens = event.data.split(';');
-  if (tokens.length > 2)
-    console.log('Input included a semicolon. This is used as a separator, so anything after it will be dropped.');
-
-  const action = tokens[0];
-  const inputData = tokens.length > 1 ? tokens[1] : "";
+  const action = event.data.action;
+  const inputData = event.data.input;
   switch (action) {
     case 'getByTag':
       getByTag(inputData);

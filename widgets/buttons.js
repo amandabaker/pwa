@@ -1,8 +1,15 @@
+const postToSW = async (action, input) => {
+  const sw = await navigator.serviceWorker.getRegistration();
+  sw.active.postMessage({
+    action,
+    input
+  });
+};
 
 const matchAll = async () => {
   console.log('Pushing matchAll request to SW');
   const sw = await navigator.serviceWorker.getRegistration();
-  sw.active.postMessage('matchAll');
+  postToSW('matchAll');
 };
 
 const getByTag = async () => {
@@ -10,7 +17,7 @@ const getByTag = async () => {
 
   const tag = document.getElementById('getByTagInput').value;
   const sw = await navigator.serviceWorker.getRegistration();
-  sw.active.postMessage(`getByTag;${tag}`);
+  postToSW('getByTag', tag);
 };
 
 const getByInstanceId = async () => {
@@ -18,7 +25,7 @@ const getByInstanceId = async () => {
 
   const instanceId = document.getElementById('getByInstanceIdInput').value;
   const sw = await navigator.serviceWorker.getRegistration();
-  sw.active.postMessage(`getByInstanceId;${instanceId}`);
+  postToSW('getByInstanceId', instanceId);
 };
 
 const updateByTag = async () => {
@@ -26,7 +33,7 @@ const updateByTag = async () => {
 
   const tag = document.getElementById('updateByTagInput').value;
   const sw = await navigator.serviceWorker.getRegistration();
-  sw.active.postMessage(`updateByTag;${tag}`);
+  postToSW('updateByTag', tag);
 };
 
 const updateByInstanceId = async () => {
@@ -34,7 +41,7 @@ const updateByInstanceId = async () => {
 
   const instanceId = document.getElementById('updateByInstanceIdInput').value;
   const sw = await navigator.serviceWorker.getRegistration();
-  sw.active.postMessage(`updateByInstanceId;${instanceId}`);
+  postToSW('updateByInstanceId', instanceId);
 };
 
 const onInputKeydown = (event, action) => {
