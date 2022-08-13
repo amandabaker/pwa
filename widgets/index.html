@@ -5,33 +5,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Widgets Sample App</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="./manifest.webmanifest">
 </head>
 
-<body style="padding:20px">
+<body>
   See the result of these actions in the console.
-  <div id="buttonContainer" style="padding-top:20px">
+  <div id="buttonContainer">
     <div>
-      <button onclick="getByTag()">Get by Tag</button>
       <input id="getByTagInput" type="text" placeholder="tag">
+      <button onclick="getByTag()">Get by Tag</button>
     </div>
     <div>
-      <button onclick="getByInstanceId()">Get by Instance ID</button>
       <input id="getByInstanceIdInput" type="text" placeholder="instance_id">
+      <button onclick="getByInstanceId()">Get by Instance ID</button>
     </div>
     <div>
-      <button onclick="updateByTag()">Update by Tag</button>
       <input id="updateByTagInput" type="text" placeholder="tag">
+      <button onclick="updateByTag()">Update by Tag</button>
     </div>
     <div>
-      <button onclick="updateByInstanceId()">Update by Instance ID</button>
       <input id="updateByInstanceIdInput" type="text" placeholder="instance_id">
+      <button onclick="updateByInstanceId()">Update by Instance ID</button>
     </div>
     <div>
       <button onclick="matchAll()">Match All</button>
     </div>
   </div>
-  <div id="todoList" style="padding-top:20px">
+  <div id="todoList">
   To-do:
   <ul>
     <li>Add update payload</li>

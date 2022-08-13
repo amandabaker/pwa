@@ -1,0 +1,31 @@
+body {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input {
+  width: 200px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+
+button {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 4px;
+  width: 150px;
+}
+
+#buttonContainer > div {
+  padding-bottom: 5px;
+}
+
+#buttonContainer {
+  padding-top: 20px;
+}
+
+#todoList {
+  padding-top: 20px;
+}
