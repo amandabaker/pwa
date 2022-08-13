@@ -50,3 +50,11 @@ document.getElementById('updateByTagInput').addEventListener('keydown', (event) 
     onInputKeydown(event, updateByTag)});
 document.getElementById('updateByInstanceIdInput').addEventListener('keydown', (event) => {
       onInputKeydown(event, updateByInstanceId)});
+
+
+navigator.serviceWorker.addEventListener('message', (event) => {
+  if (event.data.type == 'showResult') {
+    document.getElementById('resultAction').textContent = event.data.action;
+    document.getElementById('resultAdditionalText').textContent = ` ${event.data.additionalText}`;
+  }
+});
