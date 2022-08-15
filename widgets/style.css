@@ -18,16 +18,16 @@ button {
   width: 150px;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 #buttonContainer > div {
   padding-bottom: 5px;
 }
 
 #buttonContainer {
   padding-top: 20px;
-}
-
-#result {
-  font-weight: bold;
 }
 
 .mono {

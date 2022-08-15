@@ -6,16 +6,19 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-self.addEventListener('fetch', e => {
-  e.respondWith(
-    fetch(e.request).catch(() => {
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    fetch(event.request).catch(() => {
       return new Response("Oh, no! Where's the internet?");
     })
   );
 });
 
-self.addEventListener('widgetclick', e => {
-  e.waitUntil(console.log(e));
+self.addEventListener('widgetclick', (event) => {
+  event.waitUntil(async () => {
+    console.log(event);
+    incrementWidgetclick();
+  });
 });
 
 const showResult = async (action, additionalText) => {
@@ -26,6 +29,13 @@ const showResult = async (action, additionalText) => {
       action,
       additionalText,
     });
+  });
+};
+
+const incrementWidgetclick = async () => {
+  const allClients = await clients.matchAll({});
+  allClients.forEach(client => {
+    client.postMessage({ type: "widgetclick" });
   });
 };
 

@@ -1,3 +1,5 @@
+let widgetclickCount = 0;
+
 const postToSW = async (action, input) => {
   const sw = await navigator.serviceWorker.getRegistration();
   sw.active.postMessage({
@@ -49,6 +51,11 @@ const onInputKeydown = (event, action) => {
     action(event.target.value);
 }
 
+const incrementWidgetClick = () => {
+  widgetclickCount++;
+  document.getElementById('widgetclickCount').textContent = widgetclickCount;
+}
+
 document.getElementById('getByTagInput').addEventListener('keydown', (event) => {
     onInputKeydown(event, getByTag)});
 document.getElementById('getByInstanceIdInput').addEventListener('keydown', (event) => {
@@ -60,8 +67,13 @@ document.getElementById('updateByInstanceIdInput').addEventListener('keydown', (
 
 
 navigator.serviceWorker.addEventListener('message', (event) => {
-  if (event.data.type == 'showResult') {
-    document.getElementById('resultAction').textContent = event.data.action;
-    document.getElementById('resultAdditionalText').textContent = ` ${event.data.additionalText}`;
+  switch(event.data.type) {
+    case 'showResult':
+      document.getElementById('resultAction').textContent = event.data.action;
+      document.getElementById('resultAdditionalText').textContent = ` ${event.data.additionalText}`;
+      break;
+    case 'widgetclick':
+      incrementWidgetClick();
+      break;
   }
 });
