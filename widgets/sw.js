@@ -22,10 +22,8 @@ const incrementWidgetclick = async () => {
 };
 
 self.addEventListener('widgetclick', (event) => {
-  event.waitUntil(async () => {
-    console.log(event);
-    incrementWidgetclick();
-  });
+  event.waitUntil(console.log(event));
+  incrementWidgetclick();
 });
 
 const showResult = async (action, additionalText) => {
