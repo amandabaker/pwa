@@ -14,6 +14,13 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
+const incrementWidgetclick = async () => {
+  const allClients = await clients.matchAll({});
+  allClients.forEach(client => {
+    client.postMessage({ type: "widgetclick" });
+  });
+};
+
 self.addEventListener('widgetclick', (event) => {
   event.waitUntil(async () => {
     console.log(event);
@@ -29,13 +36,6 @@ const showResult = async (action, additionalText) => {
       action,
       additionalText,
     });
-  });
-};
-
-const incrementWidgetclick = async () => {
-  const allClients = await clients.matchAll({});
-  allClients.forEach(client => {
-    client.postMessage({ type: "widgetclick" });
   });
 };
 
