@@ -86,8 +86,8 @@ const matchAll = async () => {
 };
 
 const updateByTag = async (tag) => {
-  const payload = '{ "data": "content" }';
-  const action = `updateByTag(${tag}, ${payload})`;
+  const payload = { data: "content" };
+  const action = `updateByTag(${tag}, ${JSON.stringify(payload)})`;
   try {
     await self.widgets.updateByTag(tag, payload);
     console.log(`${action} completed`);
@@ -99,8 +99,8 @@ const updateByTag = async (tag) => {
 };
 
 const updateByInstanceId = async (instanceId) => {
-  const payload = '{ "data": "content" }';
-  const action = `updateByInstanceId(${instanceId}, ${payload})`;
+  const payload = { data: "content" };
+  const action = `updateByInstanceId(${instanceId}, ${JSON.stringify(payload)})`;
   try {
     await self.widgets.updateByInstanceId(instanceId, payload);
     console.log(`${action} completed`);
