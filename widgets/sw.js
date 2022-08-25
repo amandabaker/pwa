@@ -69,10 +69,10 @@ const getByInstanceId = async (instanceId) => {
   }
 };
 
-const matchAll = async () => {
-  const action = `matchAll({})`;
+const getByHostId = async (hostId) => {
+  const action = `getByHostId(${hostId})`;
   try {
-    const widgets = await self.widgets.matchAll({});
+    const widgets = await self.widgets.getByHostId(hostId);
     console.log(`${action} returned:`);
     console.log(widgets);
     if (widgets)
@@ -85,8 +85,28 @@ const matchAll = async () => {
   }
 };
 
-const updateByTag = async (tag) => {
-  const payload = { data: "content" };
+const matchAll = async (options) => {
+  if (!options)
+    options = {};
+
+  const action = `matchAll(${JSON.stringify(options)})`;
+  try {
+    const widgets = await self.widgets.matchAll(options);
+    console.log(`${action} returned:`);
+    console.log(widgets);
+    if (widgets)
+      showResult(action, `found ${widgets.length} widgets`);
+    else
+      showResult(action, `returned undefined`);
+  } catch (error) {
+    console.log(error);
+    showResult(action, `failed.`);
+  }
+};
+
+const updateByTag = async (tag, payload) => {
+  if (!payload)
+    payload = { data: "content" };
   const action = `updateByTag(${tag}, ${JSON.stringify(payload)})`;
   try {
     await self.widgets.updateByTag(tag, payload);
@@ -98,8 +118,9 @@ const updateByTag = async (tag) => {
   }
 };
 
-const updateByInstanceId = async (instanceId) => {
-  const payload = { data: "content" };
+const updateByInstanceId = async (instanceId, payload) => {
+  if (!payload)
+    payload = { data: "content" };
   const action = `updateByInstanceId(${instanceId}, ${JSON.stringify(payload)})`;
   try {
     await self.widgets.updateByInstanceId(instanceId, payload);
@@ -114,6 +135,7 @@ const updateByInstanceId = async (instanceId) => {
 self.onmessage = (event) => {
   const action = event.data.action;
   const inputData = event.data.input;
+  const payload = event.data.payload;
   switch (action) {
     case 'getByTag':
       getByTag(inputData);
@@ -121,14 +143,17 @@ self.onmessage = (event) => {
     case 'getByInstanceId':
       getByInstanceId(inputData);
       break;
+    case 'getByHostId':
+      getByHostId(inputData);
+      break;
     case 'matchAll':
-      matchAll();
+      matchAll(inputData);
       break;
     case 'updateByTag':
-      updateByTag(inputData);
+      updateByTag(inputData, payload);
       break;
     case 'updateByInstanceId':
-      updateByInstanceId(inputData);
+      updateByInstanceId(inputData, payload);
       break;
     default:
       console.log('Not sure what to do with that...');

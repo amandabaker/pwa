@@ -17,33 +17,32 @@
       <button onclick="getByTag()">Get by Tag</button>
     </div>
     <div>
-      <input id="getByInstanceIdInput" type="text" placeholder="instance_id">
+      <input id="getByInstanceIdInput" type="text" placeholder="instanceId">
       <button onclick="getByInstanceId()">Get by Instance ID</button>
     </div>
     <div>
-      <input id="updateByTagInput" type="text" placeholder="tag">
+      <input id="getByHostId" type="text" placeholder="hostId">
+      <button onclick="getByHostId()">Get by Host ID</button>
+    </div>
+    <div>
+      <input id="matchAllInput" type="text" placeholder="Match widget options">
+      <button onclick="matchAll()">Match All</button>
+    </div>
+    <div>
+      <input id="updateByTagInput" class="narrow" type="text" placeholder="tag">
+      <input id="updateByTagPayloadInput" class="payload" type="text" placeholder="payload">
       <button onclick="updateByTag()">Update by Tag</button>
     </div>
     <div>
-      <input id="updateByInstanceIdInput" type="text" placeholder="instance_id">
+      <input id="updateByInstanceIdInput" class="narrow" type="text" placeholder="instance_id">
+      <input id="updateByInstanceIdPayloadInput" class="payload" type="text" placeholder="payload">
       <button onclick="updateByInstanceId()">Update by Instance ID</button>
-    </div>
-    <div>
-      <button onclick="matchAll()">Match All</button>
     </div>
   </div>
   <div id="checkTheConsoleReminder">
     <p class="bold">Result: <span id="resultAction" class="mono"></span><span id="resultAdditionalText"></span></p>
     <p class="bold"><span class="mono">widgetclick</span> count: <span id="widgetclickCount">0</span></p>
     <p>Open DevTools Console for more details.</p>
-  </div>
-  <div id="todoList">
-  To-do:
-  <ul>
-    <li>Add update payload</li>
-    <li>MatchAll options</li>
-    <li>Add widgetclick counter</li>
-  </ul>
   </div>
 </body>
 <script src="app.js"></script>

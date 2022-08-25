@@ -5,8 +5,7 @@
   "display_override": [
     "window-controls-overlay"
   ],
-  "scope": "https://amandabaker.github.io/pwa/widgets/",
-  "start_url": "https://amandabaker.github.io/pwa/widgets/",
+  "start_url": "./index.html",
   "icons": [
     {
       "src": "icons/48x48.png",

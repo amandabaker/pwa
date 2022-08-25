@@ -4,12 +4,20 @@ body {
 }
 
 input {
-  width: 200px;
+  width: 241px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 20px;
   padding-left: 10px;
   padding-right: 10px;
   vertical-align: middle;
+}
+
+input.narrow {
+  width: 66px;
+}
+
+input.payload {
+  width: 146px;
 }
 
 button {
