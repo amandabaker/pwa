@@ -34,6 +34,10 @@ body {
     env(safe-area-inset-left, 0px);
 }
 
+button {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #titleBarContainer {
   left: var(--titlebar-area-x, 0);
   position: fixed;

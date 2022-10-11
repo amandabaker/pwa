@@ -38,27 +38,36 @@ const emulateMac = () => {
 
 // Button handler for changing theme-color via meta tag
 const toggleHCThemeColor = () => {
-  const oldThemeColorElement = 
+  const oldThemeColorElement =
       document.getElementsByTagName('meta').namedItem("theme-color");
-  
-  // If there was an existing theme-color element, delete it. 
+
+  // If there was an existing theme-color element, delete it.
   if (oldThemeColorElement){
     oldThemeColorElement.remove();
     return;
   }
 
-  // Otherwise, add one. 
+  // Otherwise, add one.
   const themeColorElement = document.createElement("meta");
   themeColorElement.name = "theme-color";
   // Commented code below does not work since it returns the color name,
-  //  e.g. "ActiveText". I'm just leaving it as a reminder that this approach 
-  // was attempted at one point, so don't try again. 
-  // themeColorElement.content = 
+  //  e.g. "ActiveText". I'm just leaving it as a reminder that this approach
+  // was attempted at one point, so don't try again.
+  // themeColorElement.content =
   //   getComputedStyle(document.documentElement).getPropertyValue('--theme-color');
-  themeColorElement.content = 
+  themeColorElement.content =
       getComputedStyle(document.getElementById("titleBarContainer"))
       .getPropertyValue('background-color');
   document.head.appendChild(themeColorElement);
+}
+
+const openAboutBlankPopup = () => {
+  let win = window.open("about:blank", "_blank", "popup=yes");
+  win.document.body.style.backgroundColor = "#e3e3e3";
+  win.document.body.style.fontFamily = "Segoe UI";
+  let element = win.document.createElement("div");
+  element.textContent = "This page is on about:blank, not a proper URL.";
+  win.document.body.append(element);
 }
 
 const logJSRects = () => {
@@ -117,7 +126,7 @@ const logGeometryChangePayload = (event) => {
 
   const visible = event.visible;
 
-  geometrychangePayloadElement.textContent = 
+  geometrychangePayloadElement.textContent =
 `geometrychange event payload: {
   ${rectName} = {
     x: ${rect.x},

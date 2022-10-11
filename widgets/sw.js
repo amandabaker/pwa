@@ -1,3 +1,31 @@
+const defaultActionVerb = 'inc';
+const defaultTemplate = {
+  type: 'AdaptiveCard',
+  body: [
+    { type: 'TextBlock', text: 'You have clicked the button ${count} times' },
+  ],
+  actions: [
+    {
+      type: 'Action.Execute',
+      title: 'Increment',
+      verb: `${defaultActionVerb}`,
+      style: 'positive',
+    },
+  ],
+  $schema: 'http://adaptivecards.io/schemas/adaptive-card.json',
+  version: '1.5',
+};
+let incrementButtonClickCount = 0;
+const defaultData = () => {
+  return { count: incrementButtonClickCount++ };
+};
+const defaultPayload = () => {
+  return {
+    template: JSON.stringify(defaultTemplate),
+    data: JSON.stringify(defaultData()),
+  };
+};
+
 self.addEventListener('activate', (event) => {
   event.waitUntil(clients.claim());
 });
@@ -22,6 +50,12 @@ const incrementWidgetclick = async () => {
 };
 
 self.addEventListener('widgetclick', (event) => {
+  if (event.action === 'widget-install') {
+    updateByTag('max_ac', defaultPayload());
+  } else if (event.action === defaultActionVerb) {
+    updateByTag('max_ac', defaultPayload());
+  }
+
   event.waitUntil(console.log(event));
   incrementWidgetclick();
 });
