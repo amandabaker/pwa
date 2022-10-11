@@ -142,3 +142,19 @@ body {
     top: calc(var(--titlebar-area-height, var(--fallback-title-bar-height)) + 1px);
   }
 }
+
+.WCOMediaQuery {
+  display: none;
+}
+
+@media (display-mode: window-controls-overlay) {
+  #mediaWCO {
+    display:inherit;
+  }
+}
+
+@media (display-mode: standalone) {
+  #mediaStandalone {
+    display:inherit;
+  }
+}
