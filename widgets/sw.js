@@ -15,14 +15,19 @@ const defaultTemplate = {
   $schema: 'http://adaptivecards.io/schemas/adaptive-card.json',
   version: '1.5',
 };
-let incrementButtonClickCount = 0;
-const defaultData = () => {
-  return { count: incrementButtonClickCount++ };
+
+importScripts('counter.js');
+
+const defaultData = async () => {
+  // get the stored count
+  const count = await getAndIncrementCount();
+  return { count };
 };
-const defaultPayload = () => {
+
+const defaultPayload = async () => {
   return {
     template: JSON.stringify(defaultTemplate),
-    data: JSON.stringify(defaultData()),
+    data: JSON.stringify(await defaultData()),
   };
 };
 
@@ -31,6 +36,8 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('install', (event) => {
+  // cach counter script for offline use
+  event.waitUntil(caches.open("v1").then((cache) => cache.add("/pwa/widgets/counter.js")));
   self.skipWaiting();
 });
 
@@ -49,11 +56,11 @@ const incrementWidgetclick = async () => {
   });
 };
 
-self.addEventListener('widgetclick', (event) => {
+self.addEventListener('widgetclick', async (event) => {
   if (event.action === 'widget-install') {
-    updateByTag('max_ac', defaultPayload());
+    event.waitUntil(updateByTag('max_ac', await defaultPayload()));
   } else if (event.action === defaultActionVerb) {
-    updateByTag('max_ac', defaultPayload());
+    event.waitUntil(updateByTag('max_ac', await defaultPayload()));
   }
 
   event.waitUntil(console.log(event));
