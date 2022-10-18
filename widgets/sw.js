@@ -56,11 +56,11 @@ const incrementWidgetclick = async () => {
   });
 };
 
-self.addEventListener('widgetclick', async (event) => {
+self.addEventListener('widgetclick', (event) => {
   if (event.action === 'widget-install') {
-    event.waitUntil(updateByTag('max_ac', await defaultPayload()));
+    event.waitUntil(updateDefaultWidget());
   } else if (event.action === defaultActionVerb) {
-    event.waitUntil(updateByTag('max_ac', await defaultPayload()));
+    event.waitUntil(updateDefaultWidget());
   }
 
   event.waitUntil(console.log(event));
@@ -171,6 +171,10 @@ const updateByInstanceId = async (instanceId, payload) => {
     console.log(error);
     showResult(action, `failed.`);
   }
+};
+
+const updateDefaultWidget = async () => {
+  await updateByTag('max_ac', await defaultPayload());
 };
 
 self.onmessage = (event) => {
