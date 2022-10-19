@@ -59,6 +59,8 @@ const incrementWidgetclick = async () => {
 self.addEventListener('widgetclick', (event) => {
   if (event.action === 'widget-install') {
     event.waitUntil(updateDefaultWidget());
+  } else if (event.action === 'refresh') {
+    event.waitUntil(updateDefaultWidget());
   } else if (event.action === defaultActionVerb) {
     event.waitUntil(updateDefaultWidget());
   }
