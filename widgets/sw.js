@@ -179,6 +179,13 @@ const updateDefaultWidget = async () => {
   await updateByTag('max_ac', await defaultPayload());
 };
 
+const checkIfWidgetsIsDefined = () => {
+  const widgetsIsDefined = !!self.widgets;
+  const action = 'self.widgets';
+  const additionalText = widgetsIsDefined ? ' is defined' : ' is undefined';
+  showResult(action, additionalText);
+}
+
 self.onmessage = (event) => {
   const action = event.data.action;
   const inputData = event.data.input;
@@ -201,6 +208,9 @@ self.onmessage = (event) => {
       break;
     case 'updateByInstanceId':
       updateByInstanceId(inputData, payload);
+      break;
+    case 'checkSelf.Widgets':
+      checkIfWidgetsIsDefined();
       break;
     default:
       console.log('Not sure what to do with that...');

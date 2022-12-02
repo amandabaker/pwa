@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Widgets Sample App</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="manifest" href="../manifest.webmanifest">
+</head>
+
+<body>
+  <p class="bold">Result: <span id="resultAction" class="mono"></span><span id="resultAdditionalText"></span></p>
+  <button onclick="checkIfWidgetsIsDefined">Refresh</button>
+</body>
+<script>
+  const checkIfWidgetsIsDefined = async () => {
+    const sw = await navigator.serviceWorker.getRegistration();
+    sw.active.postMessage({action: 'checkSelf.Widgets'});
+  };
+
+  navigator.serviceWorker.addEventListener('message', (event) => {
+    switch(event.data.type) {
+      case 'showResult':
+        document.getElementById('resultAction').textContent = event.data.action;
+        document.getElementById('resultAdditionalText').textContent = ` ${event.data.additionalText}`;
+        break;
+    }
+  });
+
+  checkIfWidgetsIsDefined();
+</script>
