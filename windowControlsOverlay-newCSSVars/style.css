@@ -116,7 +116,7 @@ button {
 }
 
 .mono {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
   white-space: pre;
 }
 

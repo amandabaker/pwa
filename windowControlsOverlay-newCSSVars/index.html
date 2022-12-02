@@ -28,15 +28,15 @@
           <button onclick="emulateWin()">Emulate Windows</button>
           <button onclick="emulateMac()">Emulate Mac</button>
         </div>
-        <p id="WCO" class="mono">navigator.windowControlsOverlay</p>
-        <p id="WCOVisible" class="mono"></p>
-        <div id="WCOBoundingRect" class="mono"></div>
-        <div id="WCOTitlebarAreaRect" class="mono"></div>
-        <div id="WCOCss" class="mono"></div>
-        <div id="mediaWCO" class="WCOMediaQuery mono">@media (display-mode: window-controls-overlay)</div>
-        <div id="mediaStandalone" class="WCOMediaQuery mono">@media (display-mode: standalone)</div>
-        <p id="WCOGeometrychangeCount" class="mono"></p>
-        <div id="WCOGeometrychangePayload" class="mono"></div>
+        <pre id="WCO">navigator.windowControlsOverlay</pre>
+        <pre id="WCOVisible"></pre>
+        <pre id="WCOBoundingRect"></pre>
+        <pre id="WCOTitlebarAreaRect"></pre>
+        <pre id="WCOCss"></pre>
+        <pre id="mediaWCO" class="WCOMediaQuery ">@media (display-mode: window-controls-overlay)</pre>
+        <pre id="mediaStandalone" class="WCOMediaQuery">@media (display-mode: standalone)</pre>
+        <pre id="WCOGeometrychangeCount"></pre>
+        <pre id="WCOGeometrychangePayload"></pre>
         <div id="Errors" class="red">
           <div id="GeometryChangeListenerError" style="visibility: hidden">
             Failed to add <span class='mono'>geometrychange</span> event listener to
