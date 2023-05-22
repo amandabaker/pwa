@@ -1,33 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>A PWA</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="onlineStyle.css">
-        <link rel="manifest" href="manifest.json">
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
-    </head>
 
-    <body>
-        <div class="row">
-            <div class="draggable-region">
-                <p>Draggable region</p>
-                <div class="undraggable-region">Can't drag this!</div>
-            </div>
-            <button id="clickMe">Click me</button>
-        </div>
-        <div class="content">
-            <h1>A Progressive Web App</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Hello World</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="manifest" href="./manifest.json">
+</head>
 
-            <div class="row">
-                <button id="fetchFilesButton" onclick="fetch('app.js')">Fetch app.js</button>
-                <iframe src="iframe.html"></iframe>
-            </div>
-            <p>Click count:<span id="clickCount">0</span></p>
-            <a href="https://www.bing.com/">Go to another origin (bing.com)</a>
-        </div>
-        <script src="app.js"></script>
-    </body>
-</html>
+<body>
+  <div class="center">
+    <h1 id="title">Hello PWA Features!</h1>
+    <p>An app for testing out assorted PWA features.</p>
+  </div>
+</body>
+<script src="app.js"></script>

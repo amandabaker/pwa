@@ -1,24 +1,33 @@
-
-const registerServiceWorker = async () => {
-    try {
-        await navigator.serviceWorker.register('/pwa/sample/sw.js', { scope: '/pwa/sample/'});
-        console.log('Service worker registered');
-    } catch (e) {
-        console.log(`Registration failed: ${e}`);
-    }
-}
-
 if (navigator.serviceWorker) {
-    registerServiceWorker();
+  navigator.serviceWorker.register('./sw.js');
 }
 
-let count = 0;
-const clickCountElement = document.getElementById("clickCount");
+const updateTitle = (title) => {
+	document.getElementById('title').textContent = title;
+}
 
-document.getElementById("clickMe").addEventListener("click", (event) => {
-    clickCountElement.textContent = ++count;    
-});
 
-window.addEventListener('appinstalled', (event) => {
-    console.log('appinstalled against Window');
-});
+// Protocol handling:
+const params = new URLSearchParams(window.location.search);
+const testParam = params.get("test");
+if (testParam) {
+	updateTitle(testParam);
+  console.log(`The query param is: ${testParam}`);
+}
+
+
+// File handling:
+const updateTitleForFileHandling = async (file) => {
+	const blob = await file.getFile();
+	const title = await blob.text();
+	updateTitle(title);
+	console.log(title);
+}
+
+if ("launchQueue" in window) {
+  window.launchQueue.setConsumer((launchParams) => {
+    if (launchParams.files && launchParams.files.length) {
+      updateTitleForFileHandling(launchParams.files[0])
+    }
+  });
+}

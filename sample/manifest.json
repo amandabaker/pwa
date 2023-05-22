@@ -1,28 +1,42 @@
 {
-    "short_name": "🤙",
-    "name": "🤙 A Progressive Web App 🤙",
-
-    "background_color": "#111111",
-    "display": "fullscreen",
-    "display_override": [
-      "window-controls-overlay"
-    ],
-    "scope": "https://amandabaker.github.io/pwa/sample/",
-    "serviceworker": {
-        "src": "./sw.js",
-        "scope": "/pwa/sample",
-        "type": "",
-        "update_via_cache": "none"
+  "short_name": "🤙",
+  "name": "🤙 A Progressive Web App 🤙",
+  "background_color": "#111111",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay"
+  ],
+  "scope": ".",
+  "start_url": "./index.html",
+  "icons": [
+    {
+      "src": "48x48.png",
+      "sizes": "48x48"
     },
-    "start_url": "https://amandabaker.github.io/pwa/sample/",
-    "icons": [
-        {
-          "src": "48x48.png",
-          "sizes": "48x48"
-        },
-        {
-          "src": "144x144.png",
-          "sizes": "144x144"
-        }
-      ]
+    {
+      "src": "144x144.png",
+      "sizes": "144x144"
+    }
+  ],
+
+  "file_handlers": [
+    {
+      "action": ".",
+      "accept": {
+        "text/plain": [".txt"]
+      }
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+test",
+      "url": "index.html?test=%s"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "edge_side_panel": {
+    "preferred_width": 480
+  }
 }

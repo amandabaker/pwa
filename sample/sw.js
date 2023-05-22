@@ -1,30 +1,27 @@
-const CACHE = 'myCache';
+// When SW is installed, cache urls for later use.
+self.addEventListener('install', (event) => {
 
-const cachedFiles = [
-    '/pwa/sample/',
-    '/pwa/sample/index.html',
-    '/pwa/sample/app.js',
-    '/pwa/sample/style.css',
-    '/pwa/sample/favicon.ico',
-];
+  self.skipWaiting();
 
-
-this.addEventListener('install', async (event) => {
-    await event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(cachedFiles)));
+  // Cache content for offline use.
+  const urlsToCache = ['/', 'app.js'];
+   event.waitUntil(async () => {
+      const cache = await caches.open('pwa-assets');
+      return cache.addAll(urlsToCache);
+   });
 });
 
-this.addEventListener('fetch', (event) => {
-    event.respondWith(fetch(event.request).then((response) => {
-        return response;
-    }, async () => {
-        const response = await caches.match(event.request);
-        if (response) {
-            return response;
-        }
-    }));
+// Once SW is activated, claim clients to set the new instance as the controller.
+self.addEventListener('activate', (event) => {
+  event.waitUntil(clients.claim());
 });
 
-this.addEventListener('appinstall', (event) => {
-    console.log(event);
-    console.log('appinstall in SW');
+// If fetch fails, serve content from cache.
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    fetch(event.request)
+    .catch(error => {
+      return caches.match(event.request) ;
+    })
+  );
 });
