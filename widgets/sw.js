@@ -36,7 +36,7 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('install', (event) => {
-  // cach counter script for offline use
+  // Cache counter script for offline use.
   event.waitUntil(caches.open("v1").then((cache) => cache.add("/pwa/widgets/counter.js")));
   self.skipWaiting();
 });
