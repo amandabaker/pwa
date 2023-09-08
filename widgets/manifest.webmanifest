@@ -43,7 +43,7 @@
         },
         {
           "src": "icons/screenshot2.png",
-          "sizes": "600x400 1200x800 300x200",
+          "sizes": "600x400 300x200",
           "label": "Test screenshot 2"
         }
       ],
@@ -88,7 +88,7 @@
         },
         {
           "src": "icons/screenshot2.png",
-          "sizes": "600x400 1200x800 300x200",
+          "sizes": "600x400 300x200",
           "label": "Test screenshot 2"
         }
       ],
