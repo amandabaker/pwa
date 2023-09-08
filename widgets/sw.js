@@ -31,13 +31,29 @@ const defaultPayload = async () => {
   };
 };
 
+const ticTacToePayload = async (event) => {
+  const template = JSON.stringify(await (await fetch("cards/tic-tac-toe.ac.json")).json());
+  const x =  {
+    template,
+    data: JSON.stringify({
+      "values": [
+          ["a", "b", "c"],
+          ["d", "e", "f"],
+          ["g", "h", "i"]
+      ]
+  }),
+  };
+
+  return x;
+}
+
 self.addEventListener('activate', (event) => {
   event.waitUntil(clients.claim());
 });
 
 self.addEventListener('install', (event) => {
-  // Cache counter script for offline use.
-  event.waitUntil(caches.open("v1").then((cache) => cache.add("/pwa/widgets/counter.js")));
+  // cache counter script for offline use
+  event.waitUntil(caches.open("v1").then((cache) => cache.add("counter.js")));
   self.skipWaiting();
 });
 
@@ -57,6 +73,7 @@ const incrementWidgetclick = async () => {
 };
 
 self.addEventListener('widgetclick', (event) => {
+  // Handle both the old and new versions of the 'widgetclick' event.
   if (event.action === 'widget-install') {
     event.waitUntil(updateDefaultWidget());
   } else if (event.action === 'widget-resume') {
@@ -65,9 +82,43 @@ self.addEventListener('widgetclick', (event) => {
     event.waitUntil(updateDefaultWidget());
   }
 
+  if (event.tag == "tic-tac-toe") {
+    event.waitUntil(updateTicTacToeWidget(event));
+    return;
+  }
+
   event.waitUntil(console.log(event));
   incrementWidgetclick();
 });
+
+self.addEventListener('widgetinstall', (event) => {
+  if (event.tag == "tic-tac-toe") {
+    event.waitUntil(updateTicTacToeWidget(event));
+    return;
+  }
+
+  event.waitUntil(updateDefaultWidget());
+
+});
+
+self.addEventListener('widgetuninstall', (event) => {
+  if (event.tag == "tic-tac-toe") {
+    event.waitUntil(updateTicTacToeWidget(event));
+    return;
+  }
+
+  event.waitUntil(updateDefaultWidget());
+});
+
+self.addEventListener('widgetresume', (event) => {
+  if (event.tag == "tic-tac-toe") {
+    event.waitUntil(updateTicTacToeWidget(event));
+    return;
+  }
+
+  event.waitUntil(updateDefaultWidget());
+});
+
 
 const showResult = async (action, additionalText) => {
   const allClients = await clients.matchAll({});
@@ -176,8 +227,12 @@ const updateByInstanceId = async (instanceId, payload) => {
 };
 
 const updateDefaultWidget = async () => {
-  await updateByTag('max_ac', await defaultPayload());
+  await updateByTag('increment', await defaultPayload());
 };
+
+const updateTicTacToeWidget = async (event) => {
+  await updateByTag('tic-tac-toe', await ticTacToePayload(event));
+}
 
 const checkIfWidgetsIsDefined = () => {
   const widgetsIsDefined = !!self.widgets;
@@ -210,8 +265,8 @@ self.onmessage = (event) => {
       updateByInstanceId(inputData, payload);
       break;
     case 'checkSelf.Widgets':
-      checkIfWidgetsIsDefined();
-      break;
+        checkIfWidgetsIsDefined();
+        break;
     default:
       console.log('Not sure what to do with that...');
   }

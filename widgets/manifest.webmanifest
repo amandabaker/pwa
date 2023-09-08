@@ -1,37 +1,50 @@
 {
-  "short_name": "Widgets App",
-  "name": "Widgets Sample App",
+  "short_name": "Widgets App (GitHub)",
+  "name": "Widgets Sample App (GitHub)",
   "display": "standalone",
   "display_override": [
     "window-controls-overlay"
   ],
+  "theme_color": "#FFFFFF",
   "start_url": "./index.html",
   "icons": [
     {
       "src": "icons/48x48.png",
-      "sizes": "48x48"
+      "sizes": "48x48",
+      "purpose": "any"
     },
     {
       "src": "icons/144x144.png",
-      "sizes": "144x144"
+      "sizes": "144x144",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/512x512.png",
+      "sizes": "512x512",
+      "purpose": "any"
     }
   ],
   "widgets": [
     {
-      "name": "Max AC",
-      "tag": "max_ac",
+      "name": "Increment",
+      "tag": "increment",
       "template": "test",
       "data": "cards/data.json",
       "type": "application/json",
       "ms_ac_template": "cards/test.ac.json",
 
       "short_name": "Max",
-      "description": "A widget that doesn't do much of anything yet.",
+      "description": "A widget that counts the number of times you've clicked a button.",
       "screenshots": [
         {
           "src": "icons/screenshot.png",
           "sizes": "600x400",
           "label": "Test screenshot"
+        },
+        {
+          "src": "icons/screenshot2.png",
+          "sizes": "600x400 1200x800 300x200",
+          "label": "Test screenshot 2"
         }
       ],
       "icons": [
@@ -48,6 +61,7 @@
       ],
       "auth": false,
       "update": 100,
+      "multiple": true,
       "actions": [
         {
           "action": "buttonClick",
@@ -56,12 +70,82 @@
       ]
     },
     {
-      "name": "Min AC",
-      "tag": "min_ac",
+      "name": "Tic Tac Toe",
+      "tag": "tic-tac-toe",
       "template": "test",
-      "data": "cards/data.json",
       "type": "application/json",
-      "ms_ac_template": "cards/test.ac.json"
+      "data": "cards/tic-tac-toe-data.json",
+      "ms_ac_template": "cards/tic-tac-toe.ac.json",
+
+      "short_name": "Tic Tac Toe",
+      "description": "A Tic Tac Toe widget",
+      "multiple": true,
+      "screenshots": [
+        {
+          "src": "icons/screenshot.png",
+          "sizes": "600x400",
+          "label": "Test screenshot"
+        },
+        {
+          "src": "icons/screenshot2.png",
+          "sizes": "600x400 1200x800 300x200",
+          "label": "Test screenshot 2"
+        }
+      ],
+      "icons": [
+        {
+          "src": "icons/48x48.png",
+          "sizes": "48x48"
+        }
+      ]
+    },
+    {
+      "name": "TEST",
+      "tag": "TEST",
+      "template": "test",
+      "data": "cards/tic-tac-toe-data.json",
+      "ms_ac_template": "cards/tic-tac-toe.ac.json",
+
+      "short_name": "TEST",
+      "description": "TEST",
+      "multiple": true,
+      "screenshots": [
+        {
+          "src": "icons/screenshot.png",
+          "sizes": "600x400",
+          "label": "Test screenshot"
+        }
+      ],
+      "icons": [
+        {
+          "src": "icons/48x48.png",
+          "sizes": "48x48"
+        }
+      ]
+    },
+    {
+      "name": "Invalid Screenshot",
+      "tag": "invalidScreenshot",
+      "template": "test",
+      "data": "cards/tic-tac-toe-data.json",
+      "ms_ac_template": "cards/tic-tac-toe.ac.json",
+
+      "short_name": "Invalid Screenshot",
+      "description": "This widget should not appear in the Widgets Board because the screenshot is too large",
+      "multiple": true,
+      "screenshots": [
+        {
+          "src": "icons/large_screenshot.png",
+          "sizes": "1539x818",
+          "label": "Test screenshot"
+        }
+      ],
+      "icons": [
+        {
+          "src": "icons/48x48.png",
+          "sizes": "48x48"
+        }
+      ]
     }
   ]
 }

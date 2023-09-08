@@ -1,0 +1,216 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+      {
+          "type": "ColumnSet",
+          "columns": [
+              {
+                  "type": "Column",
+                  "width": "stretch",
+                  "items": [
+                      {
+                          "type": "Container",
+                          "items": [
+                              {
+                                  "type": "Container",
+                                  "items": [
+                                      {
+                                          "type": "TextBlock",
+                                          "text": "${values[0][0]}",
+                                          "wrap": true,
+                                          "horizontalAlignment": "Center"
+                                      }
+                                  ],
+                                  "selectAction": {
+                                      "type": "Action.Execute",
+                                      "verb": "notificationClick",
+                                      "data": {
+                                          "row": 0,
+                                          "col": 0
+                                      }
+                                  }
+                              },
+                              {
+                                  "type": "Container",
+                                  "items": [
+                                      {
+                                          "type": "TextBlock",
+                                          "text": "${values[1][0]}",
+                                          "wrap": true,
+                                          "horizontalAlignment": "Center"
+                                      }
+                                  ],
+                                  "selectAction": {
+                                      "type": "Action.Execute",
+                                      "verb": "notificationClick",
+                                      "data": {
+                                          "row": 1,
+                                          "col": 0
+                                      }
+                                  }
+                              },
+                              {
+                                  "type": "Container",
+                                  "items": [
+                                      {
+                                          "type": "TextBlock",
+                                          "text": "${values[2][0]}",
+                                          "wrap": true,
+                                          "horizontalAlignment": "Center"
+                                      }
+                                  ],
+                                  "selectAction": {
+                                      "type": "Action.Execute",
+                                      "verb": "notificationClick",
+                                      "data": {
+                                          "row": 2,
+                                          "col": 0
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  ]
+              },
+              {
+                  "type": "Column",
+                  "width": "stretch",
+                  "items": [
+                      {
+                          "type": "Container",
+                          "items": [
+                              {
+                                  "type": "Container",
+                                  "items": [
+                                      {
+                                          "type": "TextBlock",
+                                          "text": "${values[0][1]}",
+                                          "wrap": true,
+                                          "horizontalAlignment": "Center"
+                                      }
+                                  ],
+                                  "selectAction": {
+                                      "type": "Action.Execute",
+                                      "verb": "notificationClick",
+                                      "data": {
+                                          "row": 0,
+                                          "col": 1
+                                      }
+                                  }
+                              },
+                              {
+                                  "type": "Container",
+                                  "items": [
+                                      {
+                                          "type": "TextBlock",
+                                          "text": "${values[1][1]}",
+                                          "wrap": true,
+                                          "horizontalAlignment": "Center"
+                                      }
+                                  ],
+                                  "selectAction": {
+                                      "type": "Action.Execute",
+                                      "verb": "notificationClick",
+                                      "data": {
+                                          "row": 1,
+                                          "col": 1
+                                      }
+                                  }
+                              },
+                              {
+                                  "type": "Container",
+                                  "items": [
+                                      {
+                                          "type": "TextBlock",
+                                          "text": "${values[2][1]}",
+                                          "wrap": true,
+                                          "horizontalAlignment": "Center"
+                                      }
+                                  ],
+                                  "selectAction": {
+                                      "type": "Action.Execute",
+                                      "verb": "notificationClick",
+                                      "data": {
+                                          "row": 2,
+                                          "col": 1
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  ]
+              },
+              {
+                  "type": "Column",
+                  "width": "stretch",
+                  "items": [
+                      {
+                          "type": "Container",
+                          "items": [
+                              {
+                                  "type": "Container",
+                                  "items": [
+                                      {
+                                          "type": "TextBlock",
+                                          "text": "${values[0][2]}",
+                                          "wrap": true,
+                                          "horizontalAlignment": "Center"
+                                      }
+                                  ],
+                                  "selectAction": {
+                                      "type": "Action.Execute",
+                                      "verb": "notificationClick",
+                                      "data": {
+                                          "row": 0,
+                                          "col": 2
+                                      }
+                                  }
+                              },
+                              {
+                                  "type": "Container",
+                                  "items": [
+                                      {
+                                          "type": "TextBlock",
+                                          "text": "${values[1][2]}",
+                                          "wrap": true,
+                                          "horizontalAlignment": "Center"
+                                      }
+                                  ],
+                                  "selectAction": {
+                                      "type": "Action.Execute",
+                                      "verb": "notificationClick",
+                                      "data": {
+                                          "row": 1,
+                                          "col": 2
+                                      }
+                                  }
+                              },
+                              {
+                                  "type": "Container",
+                                  "items": [
+                                      {
+                                          "type": "TextBlock",
+                                          "text": "${values[2][2]}",
+                                          "wrap": true,
+                                          "horizontalAlignment": "Center"
+                                      }
+                                  ],
+                                  "selectAction": {
+                                      "type": "Action.Execute",
+                                      "verb": "notificationClick",
+                                      "data": {
+                                          "row": 2,
+                                          "col": 2
+                                      }
+                                  }
+                              }
+                          ]
+                      }
+                  ]
+              }
+          ]
+      }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.6"
+}
