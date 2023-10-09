@@ -1,33 +1,45 @@
-const defaultActionVerb = 'inc';
-const defaultTemplate = {
+importScripts('counter.js');
+
+const kIncrementActionVerb = 'inc';
+const kOpenAppActionVerb = 'openApp';
+
+
+const kIncrementTemplate = {
   type: 'AdaptiveCard',
   body: [
     { type: 'TextBlock', text: 'You have clicked the button ${count} times' },
-  ],
-  actions: [
     {
-      type: 'Action.Execute',
-      title: 'Increment',
-      verb: `${defaultActionVerb}`,
-      style: 'positive',
-    },
+      type: 'ActionSet',
+      actions: [
+        {
+          type: 'Action.Execute',
+          title: 'Increment',
+          verb: `${kIncrementActionVerb}`,
+          style: 'positive',
+        },
+        {
+          type: 'Action.Execute',
+          title: 'Open App',
+          verb: `${kOpenAppActionVerb}`,
+        },
+      ]
+    }
   ],
+
   $schema: 'http://adaptivecards.io/schemas/adaptive-card.json',
   version: '1.5',
 };
 
-importScripts('counter.js');
-
-const defaultData = async () => {
+const incrementData = async () => {
   // get the stored count
   const count = await getAndIncrementCount();
   return { count };
 };
 
-const defaultPayload = async () => {
+const incrementPayload = async () => {
   return {
-    template: JSON.stringify(defaultTemplate),
-    data: JSON.stringify(await defaultData()),
+    template: JSON.stringify(kIncrementTemplate),
+    data: JSON.stringify(await incrementData()),
   };
 };
 
@@ -73,13 +85,10 @@ const incrementWidgetclick = async () => {
 };
 
 self.addEventListener('widgetclick', (event) => {
-  // Handle both the old and new versions of the 'widgetclick' event.
-  if (event.action === 'widget-install') {
+  if (event.action === kIncrementActionVerb) {
     event.waitUntil(updateDefaultWidget());
-  } else if (event.action === 'widget-resume') {
-    event.waitUntil(updateDefaultWidget());
-  } else if (event.action === defaultActionVerb) {
-    event.waitUntil(updateDefaultWidget());
+  } else if (event.action === kOpenAppActionVerb) {
+    event.waitUntil(openApp());
   }
 
   if (event.tag == "tic-tac-toe") {
@@ -227,11 +236,28 @@ const updateByInstanceId = async (instanceId, payload) => {
 };
 
 const updateDefaultWidget = async () => {
-  await updateByTag('increment', await defaultPayload());
+  await updateByTag('increment', await incrementPayload());
 };
 
 const updateTicTacToeWidget = async (event) => {
   await updateByTag('tic-tac-toe', await ticTacToePayload(event));
+}
+
+const openApp = async () => {
+  // Focus existing window, if any.
+  const clientsArr = await clients.matchAll({ type: "window" });
+  if (clientsArr.length) {
+    clientsArr[0].focus();
+    return;
+  }
+
+  // Otherwise, open a new window.
+  const windowClient = await clients.openWindow('.');
+  if (windowClient) {
+    windowClient.focus();
+  } else {
+    console.log("Failed to open window");
+  }
 }
 
 const checkIfWidgetsIsDefined = () => {
