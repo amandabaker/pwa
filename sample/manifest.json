@@ -4,6 +4,7 @@
   "background_color": "#111111",
   "display": "standalone",
   "display_override": [
+    "tabbed",
     "window-controls-overlay"
   ],
   "scope": ".",
