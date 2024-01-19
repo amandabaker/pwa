@@ -1,4 +1,5 @@
 importScripts('counter.js');
+importScripts('log-events.js');
 
 const kIncrementActionVerb = 'inc';
 const kOpenAppActionVerb = 'openApp';
@@ -85,6 +86,7 @@ const incrementWidgetclick = async () => {
 };
 
 self.addEventListener('widgetclick', (event) => {
+  logWidgetEvent('widgetclick', Date.now());
   if (event.action === kIncrementActionVerb) {
     event.waitUntil(updateDefaultWidget());
   } else if (event.action === kOpenAppActionVerb) {
@@ -101,6 +103,7 @@ self.addEventListener('widgetclick', (event) => {
 });
 
 self.addEventListener('widgetinstall', (event) => {
+  logWidgetEvent('widgetinstall', Date.now());
   if (event.tag == "tic-tac-toe") {
     event.waitUntil(updateTicTacToeWidget(event));
     return;
@@ -111,6 +114,7 @@ self.addEventListener('widgetinstall', (event) => {
 });
 
 self.addEventListener('widgetuninstall', (event) => {
+  logWidgetEvent('widgetuninstall', Date.now());
   if (event.tag == "tic-tac-toe") {
     event.waitUntil(updateTicTacToeWidget(event));
     return;
@@ -120,6 +124,7 @@ self.addEventListener('widgetuninstall', (event) => {
 });
 
 self.addEventListener('widgetresume', (event) => {
+  logWidgetEvent('widgetresume', Date.now());
   if (event.tag == "tic-tac-toe") {
     event.waitUntil(updateTicTacToeWidget(event));
     return;
