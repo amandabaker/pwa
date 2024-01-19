@@ -54,7 +54,7 @@ const logWidgetEvent = async (eventName, time) => {
     // Increment the total count of events of this type fired.
     const eventCountOS = transaction.objectStore(eventCountOSName);
     const getRequest = eventCountOS.get(eventName);
-    getRequest.onsuccess =  (event) => {
+    getRequest.onsuccess = (event) => {
       let oldEventCountInfo = getRequest.result;
       if (!oldEventCountInfo) {
         eventCountOS.add({
