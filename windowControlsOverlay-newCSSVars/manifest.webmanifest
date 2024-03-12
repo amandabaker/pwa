@@ -16,5 +16,9 @@
       "src": "144x144.png",
       "sizes": "144x144"
     }
-  ]
+  ],
+  "titlebar_height": {
+    "win": "32",
+    "mac": "28"
+  }
 }
