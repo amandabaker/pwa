@@ -21,7 +21,10 @@
     {
       "src": "screenshot.png",
       "sizes": "642x372",
-      "type": "image/png"
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Homescreen of the app",
+      "platform": "windows"
     }
   ],
   "titlebar_height": {
