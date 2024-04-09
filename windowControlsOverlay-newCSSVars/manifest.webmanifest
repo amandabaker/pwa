@@ -17,6 +17,7 @@
       "sizes": "144x144"
     }
   ],
+  "description": "A Window Controls Overlay sample app.",
   "screenshots": [
     {
       "src": "screenshot.png",
