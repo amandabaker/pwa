@@ -17,6 +17,13 @@
       "sizes": "144x144"
     }
   ],
+  "screenshots": [
+    {
+      "src": "screenshot.png",
+      "sizes": "642x372",
+      "type": "image/png"
+    }
+  ],
   "titlebar_height": {
     "win": "48",
     "mac": "28"
