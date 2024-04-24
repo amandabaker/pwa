@@ -1,6 +1,6 @@
 {
   "name": "Window Controls Overlay App with NEW css envs!",
-  "short_name": "WCO Sample App",
+  "short_name": "Window Controls Overlay Sample",
   "display": "fullscreen",
   "display_override": [
     "window-controls-overlay"
