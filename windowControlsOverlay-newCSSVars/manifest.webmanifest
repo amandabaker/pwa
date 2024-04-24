@@ -1,5 +1,6 @@
 {
-  "name": "Window Controls Overlay App with NEW css envs! 😮",
+  "name": "Window Controls Overlay App with NEW css envs!",
+  "short_name": "WCO Sample App",
   "display": "fullscreen",
   "display_override": [
     "window-controls-overlay"
@@ -15,6 +16,10 @@
     {
       "src": "144x144.png",
       "sizes": "144x144"
+    },
+    {
+      "src": "512x512.png",
+      "sizes": "512x512"
     }
   ],
   "description": "A Window Controls Overlay sample app.",
