@@ -302,3 +302,12 @@ self.onmessage = (event) => {
       console.log('Not sure what to do with that...');
   }
 };
+
+self.addEventListener(
+  "push",
+  (event) => {
+    // Treat a push as an increment.
+    updateDefaultWidget();
+  },
+  false,
+);
