@@ -31,16 +31,25 @@ const kIncrementTemplate = {
   version: '1.5',
 };
 
-const incrementData = async () => {
+// Accepts a bool |increment| indicating whether the value should be
+// incremented when getting refreshed data.
+const getIncrementData = async (increment) => {
   // get the stored count
-  const count = await getAndIncrementCount();
+  let count;
+  if (increment) {
+    count = await getAndIncrementCount();
+  } else {
+    count = await getCount();
+  }
   return { count };
 };
 
-const incrementPayload = async () => {
+// Accepts a bool |increment| indicating whether the value should be
+// incremented when getting a refreshed payload.
+const getIncrementPayload = async (increment) => {
   return {
     template: JSON.stringify(kIncrementTemplate),
-    data: JSON.stringify(await incrementData()),
+    data: JSON.stringify(await getIncrementData(increment)),
   };
 };
 
@@ -88,7 +97,7 @@ const incrementWidgetclick = async () => {
 self.addEventListener('widgetclick', (event) => {
   logWidgetEvent('widgetclick', Date.now());
   if (event.action === kIncrementActionVerb) {
-    event.waitUntil(updateDefaultWidget());
+    event.waitUntil(updateDefaultWidget(true));
   } else if (event.action === kOpenAppActionVerb) {
     event.waitUntil(openApp());
   }
@@ -109,7 +118,7 @@ self.addEventListener('widgetinstall', (event) => {
     return;
   }
 
-  event.waitUntil(updateDefaultWidget());
+  event.waitUntil(updateDefaultWidget(false));
 
 });
 
@@ -120,7 +129,7 @@ self.addEventListener('widgetuninstall', (event) => {
     return;
   }
 
-  event.waitUntil(updateDefaultWidget());
+  event.waitUntil(updateDefaultWidget(false));
 });
 
 self.addEventListener('widgetresume', (event) => {
@@ -130,7 +139,7 @@ self.addEventListener('widgetresume', (event) => {
     return;
   }
 
-  event.waitUntil(updateDefaultWidget());
+  event.waitUntil(updateDefaultWidget(false));
 });
 
 
@@ -240,8 +249,10 @@ const updateByInstanceId = async (instanceId, payload) => {
   }
 };
 
-const updateDefaultWidget = async () => {
-  await updateByTag('increment', await incrementPayload());
+// Accepts a bool |increment| indicating whether the count should be
+// incremented when updating the widget.
+const updateDefaultWidget = async (increment) => {
+  await updateByTag('increment', await getIncrementPayload(increment));
 };
 
 const updateTicTacToeWidget = async (event) => {
@@ -307,7 +318,7 @@ self.addEventListener(
   "push",
   (event) => {
     // Treat a push as an increment.
-    updateDefaultWidget();
+    updateDefaultWidget(true);
   },
   false,
 );
