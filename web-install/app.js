@@ -15,7 +15,7 @@ if (navigator.serviceWorker) {
 const installPreset = (e) => {
   // Make sure to update the visible code sample in index.html when updating
   // this.
-  let manifest_id = "https://amandabaker.github.io/pwa/web_install.html";
+  let manifest_id = "https://amandabaker.github.io/pwa/web-install/index.html";
   let install_url = manifest_id;
   navigator.install(manifest_id, install_url);
 };
