@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Web Install Sample</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+  </head>
+  <body>
+    <h1>Web Install Sample</h1>
+    <p>
+      A debugging tool for the Web Install API. See more info in the
+      <a
+        href="https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/WebInstall/explainer.md"
+        >explainer</a
+      >
+      and to-do's in this
+      <a href="https://github.com/amandabaker/pwa/issues/22">GitHub issue</a>.
+    </p>
+
+    <h2>Install same-origin with preset id</h2>
+    <p>Executes:</p>
+    <pre><code>
+      let manifest_id = "https://amandabaker.github.io/pwa/web_install.html";
+      let install_url = manifest_id;
+      navigator.install(manifest_id, install_url);
+    </code></pre>
+    <button id="installPreset">Install</button>
+
+    <!-- <h2>Install with custom info</h2>
+    <p>Executes <code>navigator.install(manifest_id, install_url)</code> using:</p>
+    <p><code>manifest_id = </code><input></p>
+    <p><code>install_url = </code><input></p>
+    <button id="installCustom">Install</button> -->
+  </body>
+  <script src="app.js"></script>
+</html>
