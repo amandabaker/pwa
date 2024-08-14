@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Web Install Sample in an IFrame</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="../style.css"/>
+  </head>
+    <h2>Install same-origin with preset id</h2>
+    <p>Executes:</p>
+    <pre><code>
+      let manifest_id = "https://amandabaker.github.io/pwa/web-install/index.html";
+      let install_url = manifest_id;
+      navigator.install(manifest_id, install_url);
+    </code></pre>
+    <button id="installPreset">Install</button>
+  </body>
+  <script src="app.js"></script>
+</html>
