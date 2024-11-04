@@ -1,5 +1,5 @@
 {
-  "name": "Custom Title Bar: unsafe-area-top-inset-left/right with JS initialization",
+  "name": "Outdated WCO PWA Example using unsafe-area-top-inset-left/right",
   "display": "standalone",
   "display_modifiers": [
     "window-controls-overlay"

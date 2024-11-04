@@ -1,5 +1,5 @@
 {
-  "name": "Custom Title Bar: Inset Inline",
+  "name": "Outdated WCO PWA Example using Inline Insets",
   "display": "standalone",
   "display_modifiers": [
     "window-controls-overlay"
