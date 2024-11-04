@@ -1,7 +1,7 @@
 {
   "name": "Google Chrome",
   "display": "standalone",
-  "display_modifiers": [
+  "display_override": [
     "window-controls-overlay"
   ],
   "start_url": "./index.html",

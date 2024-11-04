@@ -1,5 +1,5 @@
 {
-  "name": "Example from WCO Explainer",
+  "name": "Old Example from WCO Explainer",
   "display": "standalone",
   "display_override": [ 
     "window-controls-overlay" 

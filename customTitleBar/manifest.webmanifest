@@ -1,5 +1,5 @@
 {
-  "name": "Example PWA",
+  "name": "Outdated WCO PWA Example",
   "display": "standalone",
   "display_modifiers": [
     "window-controls-overlay"
